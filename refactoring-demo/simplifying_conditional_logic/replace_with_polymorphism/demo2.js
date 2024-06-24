@@ -33,3 +33,18 @@ function airSpeedVelocity(bird) {
     //         return null;
     // }
 }
+
+class Bird {
+
+    constructor(birdObject) {
+        Object.assign(this, birdObject)
+    }
+
+    get plumage() {
+
+    }
+
+    get airSpeedVelocity() {
+
+    }
+}
