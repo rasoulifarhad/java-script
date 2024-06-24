@@ -5,9 +5,5 @@ function disabilityAmount(anEmployee) {
         return 0;
     }
 
-    // if(anEmployee.isPartTime) {
-    //     return 0;
-    // }
-
     // ....
 }
