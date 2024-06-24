@@ -51,17 +51,7 @@ class Bird {
     }
 
     get plumage() {
-        switch (this.type) {
-            case 'EuropeanSwallow':
-                return "average";
-            case 'AfricanSwallow':
-                return (this.numberOfCoconuts > 2) ? "tired" :  "average";
-            case 'NorwegianBlueParrot':
-                return (this.voltage > 100) ? "scorched" : "beautiful";
-            default:
-                return "unknown";
-        }
-    
+        return "unknown";
     }
 
     get airSpeedVelocity() {
