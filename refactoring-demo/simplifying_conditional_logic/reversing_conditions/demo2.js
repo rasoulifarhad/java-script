@@ -4,9 +4,11 @@ function adjustedCapital(anInstrument) {
     if (anInstrument.capital <= 0) {
         return result;
     }
-    if (anInstrument.interestRate > 0 && anInstrument.duration > 0) {
-        result = (anInstrument.income / anInstrument.duration) * anInstrument.adju
+    
+    if (!(anInstrument.interestRate > 0 && anInstrument.duration > 0)) {
+        return result;
     }
-
+    
+    result = (anInstrument.income / anInstrument.duration) * anInstrument.adju
     return result;
 }
