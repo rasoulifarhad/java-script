@@ -1,5 +1,4 @@
 function payAmount(employee) {
-    let result;
     if(employee.isSeperated) {
         return {amount:0, reasonCode:"SEP"};
     }
@@ -11,6 +10,5 @@ function payAmount(employee) {
     consectetur(adipiscing).elit();
     sed.do.eiusmod = tempor.incididunt.ut(labore) && dolore(magna.aliqua);
     ut.enim.ad(minim.veniam);
-    result = someFinalComputation();
-    return result;
+    return someFinalComputation();
 }
