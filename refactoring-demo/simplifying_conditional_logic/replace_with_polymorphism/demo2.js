@@ -28,14 +28,20 @@ function createBird(bird) {
 }
 
 class EuropeanSwallow extends Bird{
-
+    get plumage() {
+        return "average";
+    }
 }
 
 class AfricanSwallow extends Bird{
-
+    get plumage(){
+        return (this.numberOfCoconuts > 2) ? "tired" :  "average";
+    }
 }
 class NorwegianBlueParrot extends Bird{
-
+    get plumage() {
+        return (this.voltage > 100) ? "scorched" : "beautiful";
+    }
 }
 
 class Bird {
