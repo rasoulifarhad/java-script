@@ -1,12 +1,7 @@
 
 var aDate = new Date();
 function calcCharge(aDate) {simplifying_conditional_logic/demo.js
-
-    if(summer()) {
-        charge = summerCharge();
-    } else {
-        charge = regularCharge();
-    }
+    charge = summer() ? summerCharge() : regularCharge();
 }
 
 function summer() {
