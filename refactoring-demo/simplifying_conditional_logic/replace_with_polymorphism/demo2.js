@@ -27,6 +27,17 @@ function createBird(bird) {
     }
 }
 
+class EuropeanSwallow extends Bird{
+
+}
+
+class AfricanSwallow extends Bird{
+
+}
+class NorwegianBlueParrot extends Bird{
+
+}
+
 class Bird {
 
     constructor(birdObject) {
