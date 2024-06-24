@@ -12,3 +12,7 @@ function calcCharge(aDate) {simplifying_conditional_logic/demo.js
 function summer() {
     return !aDate.isBefore(plan.summerStart) && !aDate.isAfter(plan.summerEnd);
 }
+
+function summerCharge() {
+    return quantity * plan.summerRate;
+}
