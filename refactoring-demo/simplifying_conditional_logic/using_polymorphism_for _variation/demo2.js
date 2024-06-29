@@ -76,13 +76,16 @@ class ExperientedChinaRaiting extends Raiting {
         return Math.max(result, 0);
     }
 
+    get voyagePrifitFactor() {
+        super.voyagePrifitFactor + 3;
+    }
+
     get historyLengthFactor() {
         return (this.history.length > 10) ? 1 : 0;
     }
 
     get voyageLengthFactor() {
         let result = 0;
-        result += 3;
         if (this.voyage.length > 12) {
             result += 1;
         }
