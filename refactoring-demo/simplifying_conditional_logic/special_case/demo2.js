@@ -43,7 +43,7 @@ function isUnknown(arg) {
 function client1() {
     const aCustomer = site.customer;
     let customerName;
-    if(aCustomer === "unknown") {
+    if(isUnknown(aCustomer)) {
         customerName = "occupant";
     } else {
         customerName = aCustomer.name;
@@ -51,20 +51,20 @@ function client1() {
 }
 
 function client2() {
-    const plan = (aCustomer === "unknown") ? 
+    const plan = (isUnknown(aCustomer)) ? 
         registry.billingPlans.basic :
         aCustomer.billingPlan;
 }
 
 function client3() {
-    if (aCustomer != "unknown") {
+    if (isUnknown(aCustomer)) {
         aCustomer.billingPlan = newPlan;
     }
 }
 
 
 function client4(){
-    const weeksDelinquent = (aCustomer === "unknown") ?
+    const weeksDelinquent = (isUnknown(aCustomer)) ?
         0
         : aCustomer.paymentHistory.weeksDelinquentInLastYear;
 }
