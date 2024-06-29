@@ -27,6 +27,12 @@ class Customer {
     }
 }
 
+class UnknownCustomer {
+    get isUnknown() { 
+        return true;
+    }
+}
+
 function client1() {
     const aCustomer = site.customer;
     let customerName;
