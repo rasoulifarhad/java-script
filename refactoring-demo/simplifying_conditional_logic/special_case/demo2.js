@@ -1,6 +1,6 @@
 class Site{
     get customer() {
-        return this._customer;
+        return (this._customer === "unknown") ? new UnknownCustomer() : this._customer;
     }
 }
 
