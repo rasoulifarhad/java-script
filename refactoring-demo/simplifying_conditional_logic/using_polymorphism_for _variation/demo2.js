@@ -39,9 +39,6 @@ class Raiting {
             result += 4;
         }
         result += this.history.filter(v => v.profit < 0).length;
-        if (this.voyage.zone === "china" && this.hasChinaHistory()) {
-            result -= 2;
-        }
         return Math.max(result, 0);
     }
     
@@ -83,6 +80,12 @@ class Raiting {
 }
 
 class ExperientedChinaRaiting extends Raiting {
+
+    get capitalHistoryRisk() {
+        const result = super.capitalHistoryRisk() - 2;
+        return Math.max(result, 0);
+    }
+
 }
 
 function createRaiting(voyage, history) {
