@@ -31,6 +31,10 @@ class UnknownCustomer {
     get isUnknown() { 
         return true;
     }
+
+    get name() {
+        return "occupant";
+    }
 }
 
 function isUnknown(arg) {
