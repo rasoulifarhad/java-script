@@ -54,6 +54,12 @@ class Raiting {
         if (this.voyage.zone === "east-indies") {
             result += 1;
         }
+        result += this.voyageAndHistoryLengthFactor;
+        return result;        
+    }
+    
+    get voyageAndHistoryLengthFactor() {
+        let result = 0;
         if (this.voyage.zone === "china" && this.hasChinaHistory()) {
             result += 3;
             if (this.history.length > 10) {
@@ -75,8 +81,9 @@ class Raiting {
             }
         }
         return result;        
+
+
     }
-    
 }
 
 class ExperientedChinaRaiting extends Raiting {
