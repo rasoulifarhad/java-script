@@ -21,6 +21,10 @@ class Customer {
     get paymentHistory() {
 
     }
+
+    get isUnknown() {
+        return false;
+    }
 }
 
 function client1() {
