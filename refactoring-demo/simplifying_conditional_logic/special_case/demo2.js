@@ -39,6 +39,9 @@ class UnknownCustomer {
     get billingPlan() {
         return registry.billingPlans.basic;
     }
+    
+    set billingPlan(arg) {
+    }
 }
 
 function isUnknown(arg) {
@@ -58,9 +61,7 @@ function client2() {
 }
 
 function client3() {
-    if (!isUnknown(aCustomer)) {
-        aCustomer.billingPlan = newPlan;
-    }
+    aCustomer.billingPlan = newPlan;
 }
 
 
