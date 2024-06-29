@@ -82,7 +82,8 @@ class Raiting {
     
 }
 
-
+class ExperientedChinaRaiting extends Raiting {
+}
 
 
 function main() {
