@@ -85,6 +85,13 @@ class Raiting {
 class ExperientedChinaRaiting extends Raiting {
 }
 
+function createRaiting(voyage, history) {
+    if(voyage.zone === "china" && history.some(v => "china" === v.zone)) {
+        return new ExperientedChinaRaiting(voyage, history);
+    } else {
+        return new Raiting(voyage, history);
+    }
+}
 
 function main() {
     const voyage = {zone: "west-indies", length: 10};
