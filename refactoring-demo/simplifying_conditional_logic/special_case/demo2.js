@@ -57,7 +57,7 @@ function client2() {
 }
 
 function client3() {
-    if (isUnknown(aCustomer)) {
+    if (!isUnknown(aCustomer)) {
         aCustomer.billingPlan = newPlan;
     }
 }
