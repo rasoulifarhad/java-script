@@ -55,11 +55,15 @@ class Raiting {
             result += 1;
         }
         result += this.historyLengthFactor;
-        result += this.voyageAndHistoryLengthFactor;
+        result += this.voyageLengthFactor;
         return result;        
     }
 
-    get voyageAndHistoryLengthFactor() {
+    get historyLengthFactor() {
+        return  (this.history.length > 8) ? 1 : 0;
+    }
+
+    get voyageLengthFactor() {
         let result = 0;
         if (this.voyage.length > 14) {
             result  -= 1;
@@ -67,9 +71,6 @@ class Raiting {
         return result;        
     }
 
-    get historyLengthFactor() {
-        return  (this.history.length > 8) ? 1 : 0;
-    }
 }
 
 class ExperientedChinaRaiting extends Raiting {
@@ -79,7 +80,11 @@ class ExperientedChinaRaiting extends Raiting {
         return Math.max(result, 0);
     }
 
-    get voyageAndHistoryLengthFactor() {
+    get historyLengthFactor() {
+        return (this.history.length > 10) ? 1 : 0;
+    }
+
+    get voyageLengthFactor() {
         let result = 0;
         result += 3;
         if (this.voyage.length > 12) {
@@ -89,10 +94,6 @@ class ExperientedChinaRaiting extends Raiting {
             result  -= 1;
         }
         return result;        
-    }
-
-    get historyLengthFactor() {
-        return (this.history.length > 10) ? 1 : 0;
     }
 
 }
