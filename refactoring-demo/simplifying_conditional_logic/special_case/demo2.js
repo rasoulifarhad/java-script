@@ -35,6 +35,10 @@ class UnknownCustomer {
     get name() {
         return "occupant";
     }
+
+    get billingPlan() {
+        return registry.billingPlans.basic;
+    }
 }
 
 function isUnknown(arg) {
@@ -50,9 +54,7 @@ function client1() {
 }
 
 function client2() {
-    const plan = (isUnknown(aCustomer)) ? 
-        registry.billingPlans.basic :
-        aCustomer.billingPlan;
+    const plan = aCustomer.billingPlan;
 }
 
 function client3() {
