@@ -33,6 +33,13 @@ class UnknownCustomer {
     }
 }
 
+function isUnknown(arg) {
+    if( !((arg instanceof Customer) || (arg === "unknown")) ) {
+        throw new Error(`investigate bad value: <${arg}>`);
+    }
+    return (arg === "unknown");
+}
+
 function client1() {
     const aCustomer = site.customer;
     let customerName;
