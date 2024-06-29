@@ -42,7 +42,19 @@ class UnknownCustomer {
     
     set billingPlan(arg) {
     }
+
+    get paymentHistory() {
+        return new NullPaymentHistory();
+    }
 }
+
+class NullPaymentHistory {
+
+    get weeksDelinquentInLastYear() {
+        return 0;
+    }
+}
+
 
 function isUnknown(arg) {
     if( !((arg instanceof Customer) || (arg instanceof UnknownCustomer)) ) {
