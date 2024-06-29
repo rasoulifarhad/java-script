@@ -1,5 +1,5 @@
 function raitingOf(voyage, history) {
-    return new Raiting(voyage, history).value;
+    return createRaiting(voyage, history).value;
 }
 
 class Raiting {
@@ -101,5 +101,5 @@ function main() {
         {zone: "china", profit: -2},
         {zone: "west-africa", profit: 7},
     ];
-    const myRating = raitingOf(voyage, history);
+    const myRating = createRaiting(voyage, history).value;
 }
