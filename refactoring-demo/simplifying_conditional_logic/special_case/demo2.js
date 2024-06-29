@@ -34,10 +34,10 @@ class UnknownCustomer {
 }
 
 function isUnknown(arg) {
-    if( !((arg instanceof Customer) || (arg === "unknown")) ) {
+    if( !((arg instanceof Customer) || (arg instanceof UnknownCustomer)) ) {
         throw new Error(`investigate bad value: <${arg}>`);
     }
-    return (arg === "unknown");
+    return arg.isUnknown;
 }
 
 function client1() {
