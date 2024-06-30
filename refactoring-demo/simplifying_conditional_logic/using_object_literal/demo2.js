@@ -64,12 +64,7 @@ function client1() {
     const aCustomer = site.customer;
 
 
-    let customerName;
-    if(isUnknown(aCustomer)) {
-        customerName = "occupant";
-    } else {
-        customerName = aCustomer.name;
-    }
+    const customerName = aCustomer.name;
 }
 
 function client2() {
