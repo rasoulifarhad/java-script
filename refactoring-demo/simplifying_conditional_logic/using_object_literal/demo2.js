@@ -48,19 +48,6 @@ class BillingPlan {
 
 }
 
-function client1() {
-    const site = new Site(new Customer("boy"));
-    const aCustomer = site.customer;
-
-
-    let customerName;
-    if(aCustomer === "unknown") {
-        customerName = "occupant";
-    } else {
-        customerName = aCustomer.name;
-    }
-}
-
 function createUnknownCustomer() {
     return {
         isUnknown: true,
@@ -69,6 +56,19 @@ function createUnknownCustomer() {
 
 function isUnknown(arg)  {
     return arg === "unknown";
+}
+
+function client1() {
+    const site = new Site(new Customer("boy"));
+    const aCustomer = site.customer;
+
+
+    let customerName;
+    if(isUnknown(aCustomer)) {
+        customerName = "occupant";
+    } else {
+        customerName = aCustomer.name;
+    }
 }
 
 function client2() {
