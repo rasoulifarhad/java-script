@@ -76,7 +76,7 @@ function client2() {
     const aCustomer = site.customer;
 
 
-    const plan = (aCustomer === "unknown") ?
+    const plan = (isUnknown(aCustomer)) ?
                 registry.billingPlans.basic
                 : aCustomer.billingPlan;
 }
