@@ -67,6 +67,10 @@ function createUnknownCustomer() {
     };
 }
 
+function isUnknown(arg)  {
+    return arg === "unknown";
+}
+
 function client2() {
     const site = new Site(new Customer("boy"));
     const aCustomer = site.customer;
