@@ -86,7 +86,7 @@ function client3() {
     const aCustomer = site.customer;
 
 
-    const weeksDelinquent = (aCustomer === "unknown") ?
+    const weeksDelinquent = (isUnknown(aCustomer)) ?
     0
     : aCustomer.paymentHistory.weeksDelinquentInLastYear;
 }
