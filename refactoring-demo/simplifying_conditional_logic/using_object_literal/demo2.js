@@ -51,6 +51,7 @@ class BillingPlan {
 function createUnknownCustomer() {
     return {
         isUnknown: true,
+        name: "occupant",
     };
 }
 
