@@ -55,7 +55,7 @@ function createUnknownCustomer() {
 }
 
 function isUnknown(arg)  {
-    return arg === "unknown";
+    return arg.isUnknown();
 }
 
 function client1() {
