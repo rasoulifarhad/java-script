@@ -61,6 +61,11 @@ function client1() {
     }
 }
 
+function createUnknownCustomer() {
+    return {
+        isUnknown: true,
+    };
+}
 
 function client2() {
     const site = new Site(new Customer("boy"));
