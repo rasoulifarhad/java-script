@@ -72,6 +72,7 @@ function enrichSite(inputSite) {
     const unknownCustomer = {
         isUnknown: true,
         name: "occupant",
+        billingPlan: registry.billingPlans.basic,
     };
 
     if(isUnknown(result.customer)) {
@@ -100,9 +101,7 @@ function client2() {
     const aCustomer = site.customer;
 
 
-    const plan = (isUnknown(aCustomer)) ?
-                registry.billingPlans.basic
-                : aCustomer.billingPlan;
+    const plan = aCustomer.billingPlan;
 }
 
 function client3() {
