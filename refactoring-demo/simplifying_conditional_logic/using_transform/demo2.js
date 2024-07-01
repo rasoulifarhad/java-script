@@ -73,7 +73,7 @@ function client1(params) {
 
 
     let customerName;
-    if(aCustomer === "unknown") {
+    if(isUnknown(aCustomer)) {
         customerName = "occupant";
     } else {
         customerName = aCustomer.name;
@@ -82,6 +82,10 @@ function client1(params) {
 
 function enrichSite(inputSite) {
     return _.cloneDeep(inputSite);
+}
+
+function isUnknown(aCustomer) {
+    return aCustomer === "unknown";
 }
 
 function client2() {
