@@ -66,24 +66,12 @@ unknownRecord =  {
     customer: "unknown",
 }
 
-function client1(params) {
-    const rawSite = acquireSiteData();
-    const site = rnrichSite(rawSite);
-    const aCustomer = site.customer;
-
-
-    let customerName;
-    if(isUnknown(aCustomer)) {
-        customerName = "occupant";
-    } else {
-        customerName = aCustomer.name;
-    }
-}
 
 function enrichSite(inputSite) {
     const result =  _.cloneDeep(inputSite);
     const unknownCustomer = {
         isUnknown: true,
+        name: "occupant",
     };
 
     if(isUnknown(result.customer)) {
@@ -96,6 +84,15 @@ function enrichSite(inputSite) {
 
 function isUnknown(aCustomer) {
     return (aCustomer === "unknown") ? true : aCustomer.isUnknown;
+}
+
+function client1(params) {
+    const rawSite = acquireSiteData();
+    const site = enrichSite(rawSite);
+    const aCustomer = site.customer;
+
+
+    let customerName = aCustomer.name;
 }
 
 function client2() {
