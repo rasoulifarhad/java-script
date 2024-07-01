@@ -93,7 +93,7 @@ function client2() {
     const aCustomer = site.customer;
 
 
-    const plan = (aCustomer === "unknown") ?
+    const plan = (isUnknown(aCustomer)) ?
                 registry.billingPlans.basic
                 : aCustomer.billingPlan;
 }
@@ -103,7 +103,7 @@ function client3() {
     const aCustomer = site.customer;
 
 
-    const weeksDelinquent = (aCustomer === "unknown") ?
+    const weeksDelinquent = (isUnknown(aCustomer)) ?
     0
     : aCustomer.paymentHistory.weeksDelinquentInLastYear;
 }
