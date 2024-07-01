@@ -67,7 +67,8 @@ unknownRecord =  {
 }
 
 function client1(params) {
-    const site = acquireSiteData();
+    const rawSite = acquireSiteData();
+    const site = rnrichSite(rawSite);
     const aCustomer = site.customer;
 
 
@@ -77,6 +78,10 @@ function client1(params) {
     } else {
         customerName = aCustomer.name;
     }
+}
+
+function enrichSite(inputSite) {
+    return _.cloneDeep(inputSite);
 }
 
 function client2() {
