@@ -95,7 +95,7 @@ function enrichSite(inputSite) {
 }
 
 function isUnknown(aCustomer) {
-    return aCustomer === "unknown";
+    return (aCustomer === "unknown") ? true : aCustomer.isUnknown;
 }
 
 function client2() {
