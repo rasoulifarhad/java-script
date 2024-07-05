@@ -10,6 +10,13 @@ class PaymentProcessor {
 }
 
 class PaymentMethod {
+
+    constructor() {
+        if(this.constructor.name === 'PaymentMethod') {
+            throw new Error('PaymentMethod class is abstract and cannot be instantiated. Please use one of its subclasses.');
+        }
+    }
+
     processPayment(amount) {
 
     }
