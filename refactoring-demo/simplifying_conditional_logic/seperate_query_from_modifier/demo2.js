@@ -16,5 +16,4 @@ function findMiscreant(people) {
     return "";
 }
 
-const found = findMiscreant(people);
 alertForMiscreant(people);
