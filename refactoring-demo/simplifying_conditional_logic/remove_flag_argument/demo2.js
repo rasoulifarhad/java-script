@@ -8,5 +8,13 @@ function bookConcert(aCustomer, isPremium) {
     }
 }
 
+function premiumBookConcert(aCustomer) {
+
+}
+
+function regularBookConcert(aCustomer) {
+
+}
+
 const aCustomer = {};
 bookConcert(aCustomer, true);
