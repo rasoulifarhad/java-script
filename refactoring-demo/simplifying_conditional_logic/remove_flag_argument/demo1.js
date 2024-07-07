@@ -36,7 +36,12 @@ function deliveryDate(anOrder, isRush) {
     }    
 }
 
-const anOeder = {};
+const anOrder = {
+    deliveryState: "NY",
+    placedOn: new Date(),
+};
 const aShipment = {};
 aShipment.deliveryDate = deliveryDate(anOrder, true);
+console.log(aShipment);
 aShipment.deliveryDate = deliveryDate(anOrder, false);
+console.log(aShipment);
