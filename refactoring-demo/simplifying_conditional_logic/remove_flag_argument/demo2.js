@@ -20,6 +20,18 @@ const aCustomer = {};
 
 premiumBookConcert(aCustomer);
 
+function rushDeliveryDate(anOrder) {
+    let deliveryTime;
+    if (["MA", "CT"].includes(anOrder.deliveryState)) {
+        deliveryTime = 1;
+    } else if (["NY", "NH"].includes(anOrder.deliveryState)) {
+        deliveryTime = 2;
+    } else {
+        deliveryTime = 3;
+    }
+    anOrder.placedOn.setDate(anOrder.placedOn.getDate() + (1 + deliveryTime));
+    return anOrder.placedOn;
+}
 
 function deliveryDate(anOrder, isRush) {
     if (isRush) {
