@@ -17,10 +17,11 @@ function bottomBand(usage) {
     return Math.min(usage, 100);
 }
 
-function middleBand(usage) {
+function middleBand(usage, bottom, top) {
     return usage > 100 ? Math.min(usage, 200) - 100 : 0;
 }
 
 function topBand(usage) {
     return usage > 200 ? usage - 200 : 0;
 }
+
