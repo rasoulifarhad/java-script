@@ -59,7 +59,7 @@ const anOrder = {
     placedOn: new Date(),
 };
 const aShipment = {};
-aShipment.deliveryDate = deliveryDate(anOrder, true);
+aShipment.deliveryDate = rushDeliveryDate(anOrder);
 console.log(aShipment.deliveryDate.toISOString());
 aShipment.deliveryDate = deliveryDate(anOrder, false);
 console.log(aShipment.deliveryDate.toISOString());
