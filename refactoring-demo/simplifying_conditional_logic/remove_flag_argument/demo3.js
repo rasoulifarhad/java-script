@@ -15,9 +15,20 @@ function deliveryDate(anOrder, isRush) {
     } else {
         deliveryTime = 4;
     }
-    result = anOrder.placedOn.plusDays(2 + deliveryTime);
+    anOrder.placedOn.setDate(anOrder.placedOn.getDate() + (2 + deliveryTime));
+    result = anOrder.placedOn;
     if (isRush) { 
-        result = result.minusDays(1);
+        result.setDate(result.getDate() - 1);
     }
     return result;
 }
+
+const anOrder = {
+    deliveryState: "NY",
+    placedOn: new Date(),
+};
+const aShipment = {};
+aShipment.deliveryDate = deliveryDate(anOrder, true);
+console.log(aShipment.deliveryDate.toISOString());
+aShipment.deliveryDate = deliveryDate(anOrder, false);
+console.log(aShipment.deliveryDate.toISOString());
