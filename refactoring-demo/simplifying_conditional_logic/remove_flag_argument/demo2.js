@@ -17,4 +17,5 @@ function regularBookConcert(aCustomer) {
 }
 
 const aCustomer = {};
-bookConcert(aCustomer, true);
+
+premiumBookConcert(aCustomer);
