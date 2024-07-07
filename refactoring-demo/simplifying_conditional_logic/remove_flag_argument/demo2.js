@@ -61,5 +61,5 @@ const anOrder = {
 const aShipment = {};
 aShipment.deliveryDate = rushDeliveryDate(anOrder);
 console.log(aShipment.deliveryDate.toISOString());
-aShipment.deliveryDate = deliveryDate(anOrder, false);
+aShipment.deliveryDate = regularDeliveryDate(anOrder);
 console.log(aShipment.deliveryDate.toISOString());
