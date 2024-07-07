@@ -22,7 +22,7 @@ function deliveryDate(anOrder, isRush) {
         } else {
             deliveryTime = 3;
         }
-        return anOrder.placedOn.plusDays(1 + deliveryTime);
+        anOrder.placedOn.setDate(anOrder.placedOn.getDate() + (1 + deliveryTime));
     } else {
         let deliveryTime;
         if (["MA", "CT", "NY"].includes(anOrder.deliveryState)) {
@@ -32,8 +32,10 @@ function deliveryDate(anOrder, isRush) {
         } else {
             deliveryTime = 4;
         }
-        return anOrder.placedOn.plusDays(2 + deliveryTime);
-    }    
+        anOrder.placedOn.setDate(anOrder.placedOn.getDate() + (2 + deliveryTime));
+    }  
+    return anOrder.placedOn;
+  
 }
 
 const anOrder = {
@@ -42,6 +44,6 @@ const anOrder = {
 };
 const aShipment = {};
 aShipment.deliveryDate = deliveryDate(anOrder, true);
-console.log(aShipment);
+console.log(aShipment.deliveryDate.toISOString());
 aShipment.deliveryDate = deliveryDate(anOrder, false);
-console.log(aShipment);
+console.log(aShipment.deliveryDate.toISOString());
