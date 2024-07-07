@@ -13,10 +13,6 @@ function baseCharge(usage) {
     return usd(amount);
 }
     
-function bottomBand(usage) {
-    return Math.min(usage, 100);
-}
-
 function withinBand(usage, bottom, top) {
     return usage > bottom ? Math.min(usage, top) - bottom : 0;
 }
