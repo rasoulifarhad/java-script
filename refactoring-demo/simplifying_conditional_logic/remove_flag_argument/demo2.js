@@ -46,14 +46,6 @@ function regularDeliveryDate(anOrder) {
     return anOrder.placedOn;
 }
 
-function deliveryDate(anOrder, isRush) {
-    if (isRush) {
-        return rushDeliveryDate(anOrder);
-    } else {
-        return regularDeliveryDate(anOrder);
-    }  
-}
-
 const anOrder = {
     deliveryState: "NY",
     placedOn: new Date(),
