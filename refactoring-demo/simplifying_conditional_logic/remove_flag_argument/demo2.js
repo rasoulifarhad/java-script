@@ -33,6 +33,19 @@ function rushDeliveryDate(anOrder) {
     return anOrder.placedOn;
 }
 
+function regularDeliveryDate(anOrder) {
+    let deliveryTime;
+    if (["MA", "CT", "NY"].includes(anOrder.deliveryState)) {
+        deliveryTime = 2;
+    } else if (["ME", "NH"] .includes(anOrder.deliveryState)) {
+        deliveryTime = 3;
+    } else {
+        deliveryTime = 4;
+    }
+    anOrder.placedOn.setDate(anOrder.placedOn.getDate() + (2 + deliveryTime));
+    return anOrder.placedOn;
+}
+
 function deliveryDate(anOrder, isRush) {
     if (isRush) {
         let deliveryTime;
@@ -56,7 +69,6 @@ function deliveryDate(anOrder, isRush) {
         anOrder.placedOn.setDate(anOrder.placedOn.getDate() + (2 + deliveryTime));
     }  
     return anOrder.placedOn;
-  
 }
 
 const anOrder = {
