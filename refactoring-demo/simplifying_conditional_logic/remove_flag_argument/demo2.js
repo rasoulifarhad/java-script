@@ -50,17 +50,8 @@ function deliveryDate(anOrder, isRush) {
     if (isRush) {
         return rushDeliveryDate(anOrder);
     } else {
-        let deliveryTime;
-        if (["MA", "CT", "NY"].includes(anOrder.deliveryState)) {
-            deliveryTime = 2;
-        } else if (["ME", "NH"] .includes(anOrder.deliveryState)) {
-            deliveryTime = 3;
-        } else {
-            deliveryTime = 4;
-        }
-        anOrder.placedOn.setDate(anOrder.placedOn.getDate() + (2 + deliveryTime));
+        return regularDeliveryDate(anOrder);
     }  
-    return anOrder.placedOn;
 }
 
 const anOrder = {
