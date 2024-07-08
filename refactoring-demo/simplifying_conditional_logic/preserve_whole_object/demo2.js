@@ -8,13 +8,13 @@ class HeatingPlan {
         }
     }
 
-    blabla_withinRange(aNumberRange) {
+    withinRange(aNumberRange) {
         return (aNumberRange.low >= this.temperaturePlan.low) && (aNumberRange.high <= this.temperaturePlan.high)
     }
 }
 
 
 
-if(!aPlan.blabla_withinRange(aRoom.daysTempRange)) {
+if(!aPlan.withinRange(aRoom.daysTempRange)) {
     alerts.push("room temperature went outside range");
 }
