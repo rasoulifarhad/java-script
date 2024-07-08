@@ -13,7 +13,7 @@ class HeatingPlan {
     }
 
     blabla_withinRange(aNumberRange) {
-
+        return this.withinRange(aNumberRange.low, aNumberRange.high);
     }
 }
 
