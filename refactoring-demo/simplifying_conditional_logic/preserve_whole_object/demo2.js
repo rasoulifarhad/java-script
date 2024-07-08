@@ -11,7 +11,14 @@ class HeatingPlan {
     withinRange(bottom, top) {
         return (bottom >= this.temperaturePlan.low) && (top <= this.temperaturePlan.high)
     }
+
+    blabla_withinRange(aNumberRange) {
+
+    }
 }
+
+
+
 const low = aRoom.daysTempRange.low;
 const high = aRoom.daysTempRange.high;
 if(!aPlan.withinRange(low, high)) {
