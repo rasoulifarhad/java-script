@@ -21,6 +21,6 @@ class HeatingPlan {
 
 const low = aRoom.daysTempRange.low;
 const high = aRoom.daysTempRange.high;
-if(!aPlan.withinRange(low, high)) {
+if(!aPlan.blabla_withinRange(aRoom.daysTempRange)) {
     alerts.push("room temperature went outside range");
 }
