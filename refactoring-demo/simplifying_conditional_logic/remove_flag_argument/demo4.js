@@ -1,4 +1,4 @@
-function deliveryDate(anOrder, isRush) {
+function deliveryDateHelperOnly(anOrder, isRush) {
     let result;
     let deliveryTime;
     if (anOrder.deliveryState === "MA" || anOrder.deliveryState === "CT") {
@@ -24,11 +24,11 @@ function deliveryDate(anOrder, isRush) {
 }
 
 function rushDeliveryDate(anOrder) {
-    return deliveryDate(anOrder, true);
+    return deliveryDateHelperOnly(anOrder, true);
 }
 
 function regularDeliveryDate(anOrder) {
-    return deliveryDate(anOrder, false);
+    return deliveryDateHelperOnly(anOrder, false);
 }
 
 const anOrder = {
@@ -36,7 +36,7 @@ const anOrder = {
     placedOn: new Date(),
 };
 const aShipment = {};
-aShipment.deliveryDate = deliveryDate(anOrder, true);
+aShipment.deliveryDate = rushDeliveryDate(anOrder);
 console.log(aShipment.deliveryDate.toISOString());
-aShipment.deliveryDate = deliveryDate(anOrder, false);
+aShipment.deliveryDate = regularDeliveryDate(anOrder);
 console.log(aShipment.deliveryDate.toISOString());
