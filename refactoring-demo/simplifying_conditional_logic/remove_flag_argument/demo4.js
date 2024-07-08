@@ -23,6 +23,14 @@ function deliveryDate(anOrder, isRush) {
     return result;
 }
 
+function rushDeliveryDate(anOrder) {
+    return deliveryDate(anOrder, true);
+}
+
+function regularDeliveryDate(anOrder) {
+    return deliveryDate(anOrder, false);
+}
+
 const anOrder = {
     deliveryState: "NY",
     placedOn: new Date(),
