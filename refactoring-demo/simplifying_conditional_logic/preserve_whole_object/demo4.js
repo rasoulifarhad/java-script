@@ -12,7 +12,7 @@ class HeatingPlan {
     }
 
     xxNewwithinRange(tempRange) {
-        return aPlan.withinRange(tempRange.low, tempRange.high);    
+        return this.withinRange(tempRange.low, tempRange.high);    
     }
     
 }
