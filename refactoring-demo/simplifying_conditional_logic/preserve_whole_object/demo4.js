@@ -26,7 +26,6 @@ const aRoom = {
 };
 
 const tempRange = aRoom.daysTempRange;
-const isWithinRange = aPlan.xxNewwithinRange(tempRange);
-if(!isWithinRange) {
+if(!aPlan.xxNewwithinRange(tempRange)) {
     alerts.push("room temperature went outside range");
 }
