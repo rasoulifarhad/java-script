@@ -4,7 +4,7 @@ class HeatingPlan {
         this._min = min;
         this._max = max;
     }
-    
+
     get targetTemperature() {
         if(thermostat.selectedTemperature > this._max) {
             return this._max;
@@ -16,6 +16,8 @@ class HeatingPlan {
     }
 }
 
+const thePlan = {};
+const thermostat = {};
 
 if(thePlan.targetTemperature > thermostat.currentTemperature) {
     setToHeat();

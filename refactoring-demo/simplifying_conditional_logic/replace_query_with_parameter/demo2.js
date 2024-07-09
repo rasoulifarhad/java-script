@@ -26,6 +26,8 @@ class HeatingPlan {
     }
 }
 
+const thePlan = {};
+const thermostat = {};
 
 if(thePlan.targetTemperature > thermostat.currentTemperature) {
     setToHeat();
