@@ -15,11 +15,7 @@ class HeatingPlan {
         this._max = max;
     }
     
-    get targetTemperature() {
-        return this.xxxNewTargetTemperature(thermostat.selectedTemperature);
-    }
-
-    xxxNewTargetTemperature(selectedTemperature) {
+    targetTemperature(selectedTemperature) {
         if(selectedTemperature > this._max) {
             return this._max;
         } else if(selectedTemperature < this._min) {
@@ -34,9 +30,9 @@ class HeatingPlan {
 const thePlan = {};
 const thermostat = {};
 
-if(thePlan.xxxNewTargetTemperature(thermostat.selectedTemperature) > thermostat.currentTemperature) {
+if(thePlan.targetTemperature(thermostat.selectedTemperature) > thermostat.currentTemperature) {
     setToHeat();
-} else if (thePlan.xxxNewTargetTemperature(thermostat.selectedTemperature) < thermostat.currentTemperature) {
+} else if (thePlan.targetTemperature(thermostat.selectedTemperature) < thermostat.currentTemperature) {
     setToCool();
 } else {
     setOff();
