@@ -12,10 +12,7 @@ class HeatingPlan {
     }
 
     xxNewwithinRange(tempRange) {
-        const low = tempRange.low;
-        const high = tempRange.high;
-        const isWithinRange = aPlan.withinRange(low, high);
-        return isWithinRange;    
+        return aPlan.withinRange(tempRange.low, tempRange.high);    
     }
     
 }
