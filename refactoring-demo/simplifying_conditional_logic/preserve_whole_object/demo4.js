@@ -21,8 +21,9 @@ const aRoom = {
     }
 };
 
-const low = aRoom.daysTempRange.low;
-const high = aRoom.daysTempRange.high;
+const tempRange = aRoom.daysTempRange;
+const low = tempRange.low;
+const high = tempRange.high;
 const isWithinRange = aPlan.withinRange(low, high);
 if(!isWithinRange) {
     alerts.push("room temperature went outside range");
