@@ -34,9 +34,9 @@ class HeatingPlan {
 const thePlan = {};
 const thermostat = {};
 
-if(thePlan.targetTemperature > thermostat.currentTemperature) {
+if(thePlan.xxxNewTargetTemperature(thermostat.selectedTemperature) > thermostat.currentTemperature) {
     setToHeat();
-} else if (thePlan.targetTemperature < thermostat.currentTemperature) {
+} else if (thePlan.xxxNewTargetTemperature(thermostat.selectedTemperature) < thermostat.currentTemperature) {
     setToCool();
 } else {
     setOff();
