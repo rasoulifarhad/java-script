@@ -12,9 +12,7 @@ class HeatingPlan {
     }
 
     xxNewwithinRange(tempRange) {
-        const bottom = tempRange.low;
-        const top = tempRange.high;
-        return (bottom >= this.temperaturePlan.low) && (top <= this.temperaturePlan.high)
+        return (tempRange.low >= this.temperaturePlan.low) && (tempRange.high <= this.temperaturePlan.high)
         return this.withinRange(tempRange.low, tempRange.high);    
     }
     
