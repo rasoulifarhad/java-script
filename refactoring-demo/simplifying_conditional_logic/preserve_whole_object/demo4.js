@@ -7,11 +7,7 @@ class HeatingPlan {
         }
     }
 
-    withinRange(bottom, top) {
-        return (bottom >= this.temperaturePlan.low) && (top <= this.temperaturePlan.high)
-    }
-
-    xxNewwithinRange(tempRange) {
+    withinRange(tempRange) {
         return (tempRange.low >= this.temperaturePlan.low) && (tempRange.high <= this.temperaturePlan.high)
         return this.withinRange(tempRange.low, tempRange.high);    
     }
@@ -27,6 +23,6 @@ const aRoom = {
 };
 
 const tempRange = aRoom.daysTempRange;
-if(!aPlan.xxNewwithinRange(tempRange)) {
+if(!aPlan.withinRange(tempRange)) {
     alerts.push("room temperature went outside range");
 }
