@@ -7,3 +7,30 @@
 // - Apply Inline Function (115) to the original function.
 // - Rename the new function to that of the original.
 // 
+
+class HeatingPlan {
+
+    constructor(min, max) {
+        this._min = min;
+        this._max = max;
+    }
+    
+    get targetTemperature() {
+        if(thermostat.selectedTemperature > this._max) {
+            return this._max;
+        } else if(thermostat.selectedTemperature < this._min) {
+            return this._min;
+        } else {
+            return thermostat.selectedTemperature;
+        }
+    }
+}
+
+
+if(thePlan.targetTemperature > thermostat.currentTemperature) {
+    setToHeat();
+} else if (thePlan.targetTemperature < thermostat.currentTemperature) {
+    setToCool();
+} else {
+    setOff();
+}
