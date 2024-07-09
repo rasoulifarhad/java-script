@@ -17,6 +17,10 @@ class HeatingPlan {
     
     get targetTemperature() {
         const selectedTemperature = thermostat.selectedTemperature;
+        return this.xxxNewTargetTemperature(selectedTemperature);
+    }
+
+    xxxNewTargetTemperature(selectedTemperature) {
         if(selectedTemperature > this._max) {
             return this._max;
         } else if(selectedTemperature < this._min) {
@@ -24,6 +28,7 @@ class HeatingPlan {
         } else {
             return selectedTemperature;
         }
+
     }
 }
 
