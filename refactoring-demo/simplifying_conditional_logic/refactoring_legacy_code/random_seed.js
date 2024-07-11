@@ -8,4 +8,11 @@ function random(seed) {
 }
 
 let rng = random(12345);
-console.log(rng());
+console.log((Math.floor(rng() * 6)) + 1);
+console.log((Math.floor(rng() * 6)) + 1);
+console.log((Math.floor(rng() * 6)) + 1);
+console.log((Math.floor(rng() * 6)) + 1);
+console.log((Math.floor(rng() * 6)) + 1);
+console.log((Math.floor(rng() * 6)) + 1);
+
+
