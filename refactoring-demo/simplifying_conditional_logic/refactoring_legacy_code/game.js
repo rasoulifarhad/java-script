@@ -139,13 +139,13 @@ module.exports = function () {
 
                 var winner = didPlayerWin();
                 currentPlayer += 1;
-                if (currentPlayer == players.length)
+                if (this.shouldResetCurrentPlayer())
                     currentPlayer = 0;
 
                 return winner;
             } else {
                 currentPlayer += 1;
-                if (currentPlayer == players.length)
+                if (this.shouldResetCurrentPlayer())
                     currentPlayer = 0;
                 return true;
             }
@@ -193,7 +193,13 @@ module.exports = function () {
     this.isPlayerInPnaltyBox = function () {
         return inPenaltyBox[currentPlayer];
     }
+
+    this.shouldResetCurrentPlayer = function () {
+        return currentPlayer == players.length;
+    }
+    
 };
+
 
 
 
