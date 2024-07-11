@@ -116,7 +116,7 @@ module.exports = function () {
         } else {
 
             places[currentPlayer] = places[currentPlayer] + roll;
-            if (places[currentPlayer] > lastPositionOnTheBoard) {
+            if (this.playerShouldStartANewLap(lastPositionOnTheBoard)) {
                 places[currentPlayer] = places[currentPlayer] - boardSize;
             }
 
