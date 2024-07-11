@@ -115,7 +115,7 @@ module.exports = function () {
         } else {
 
             places[currentPlayer] = places[currentPlayer] + roll;
-            if (places[currentPlayer] > 11) {
+            if (places[currentPlayer] > boardSize) {
                 places[currentPlayer] = places[currentPlayer] - 12;
             }
 
