@@ -6,10 +6,6 @@ module.exports = function () {
     var purses = new Array(6);
     var inPenaltyBox = new Array(6);
 
-    var popQuestions = new Array();
-    var scienceQuestions = new Array();
-    var sportsQuestions = new Array();
-    var rockQuestions = new Array();
 
     var currentPlayer = 0;
     var isGettingOutOfPenaltyBox = false;
@@ -47,6 +43,11 @@ module.exports = function () {
     this.createRockQuestion = function (index) {
         return "Rock Question " + index;
     };
+
+    var popQuestions = new Array();
+    var scienceQuestions = new Array();
+    var sportsQuestions = new Array();
+    var rockQuestions = new Array();
 
     for (var i = 0; i < 50; i++) {
         popQuestions.push("Pop Question " + i);
