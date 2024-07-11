@@ -99,7 +99,7 @@ module.exports = function () {
         console.log("They have rolled a " + roll);
         const boardSize = 12;
 
-        if (this.isPlayerInPnaltyBox(currentPlayer)) {
+        if (this.isPlayerInPnaltyBox()) {
             if (this.isOdd(roll)) {
                 isGettingOutOfPenaltyBox = true;
 
@@ -130,7 +130,7 @@ module.exports = function () {
     };
 
     this.wasCorrectlyAnswered = function () {
-        if (this.isPlayerInPnaltyBox(currentPlayer)) {
+        if (this.isPlayerInPnaltyBox()) {
             if (isGettingOutOfPenaltyBox) {
                 console.log('Answer was correct!!!!');
                 purses[currentPlayer] += 1;
@@ -190,7 +190,7 @@ module.exports = function () {
         return places[currentPlayer] > lastPositionOnTheBoard;
     };
 
-    this.isPlayerInPnaltyBox = function (currentPlayer) {
+    this.isPlayerInPnaltyBox = function () {
         return inPenaltyBox[currentPlayer];
     }
 };
