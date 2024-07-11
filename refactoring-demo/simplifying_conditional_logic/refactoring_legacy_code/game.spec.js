@@ -26,21 +26,18 @@ describe("The test environment", function() {
         gameRunner(getRandom);
     });
     console.log = oldLog;
-    // console.log(loggedLines);
-    // this.verifyAsJson(loggedLines);
+    let actualContent = loggedLines.join("\n");
+    let expectedContent;
+    fs.readFile(
+      'The_test_environment.should_pass.approved.txt',
+      (err, data) => {
+        if(err) {
+          throw err;
+        }
+        expectedContent = data.toString();
+        expect(actualContent).to.be.equal(expectedContent);
+      }
+    );
+    
   });
 });
-
-// describe("The test environment", function() {
-//   it("should pass", function() {
-//     expect(true).toBe(true);
-//   });
-
-//   it("should access game", function() {
-//     expect(Game).toBeDefined();
-//   });
-// });
-
-// describe("Your specs...", function() {
-//   // it ...
-// });
