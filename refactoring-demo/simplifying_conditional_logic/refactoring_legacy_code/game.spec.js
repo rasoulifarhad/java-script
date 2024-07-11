@@ -5,7 +5,7 @@ const approvals = require('approvals');
 approvals.mocha();
 const _ = require('lodash');
 const {getRandom} = require('./rnd.js');
-
+const fs = require('fs');
 describe("The test environment", function() {
   it("should pass", function() {
     const loggedLines = [];
@@ -17,7 +17,18 @@ describe("The test environment", function() {
         gameRunner(getRandom);
     });
     console.log = oldLog;
-    console.log(loggedLines);
+    let content = loggedLines.join("\n");
+    fs.writeFile(
+      "The_test_environment.should_pass.approved.txt",
+      content,
+      function (err) {
+        if(err) {
+          return console.error(err);
+        }
+        console.log(" Finished writing ");
+      }
+    )
+    // console.log(loggedLines);
     // this.verifyAsJson(loggedLines);
   });
 });
