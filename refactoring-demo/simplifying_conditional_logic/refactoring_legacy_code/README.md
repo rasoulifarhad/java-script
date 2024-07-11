@@ -7,3 +7,8 @@ And execute:
 jasmine-node .
 
 Any test source matching the pattern *.spec.js will be executed.
+
+
+### Refactoring Legacy Code
+
+###### Magic Strings

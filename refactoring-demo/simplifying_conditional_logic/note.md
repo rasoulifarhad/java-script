@@ -5,9 +5,10 @@ See https://learn.codesee.io/tackling-technical-debt-through-javascript-refactor
 See https://www.stackbuilders.com/blog/refactoring-javascript-with-functional-patterns/
 See https://martinfowler.com/articles/refactoring-adaptive-model.html
 See https://code.tutsplus.com/series/refactoring-legacy-code--cms-633
-See https://github.com/jbrains/trivia.git
-See https://github.com/caradojo/trivia
+See https://github.com/jbrains/trivia.gihttps://github.com/caradojo/triviat
+See 
 See https://github.com/caradojo/trivia/tree/master/java
+See https://semaphoreci.com/community/tutorials/getting-started-with-node-js-and-mocha
 
 </br>
 
