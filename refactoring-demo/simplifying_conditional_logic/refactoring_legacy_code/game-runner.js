@@ -7,10 +7,11 @@ module.exports = function gameRunner(randomInt) {
     game.add('Pat');
     game.add('Sue');
     const wrongAnswerId = 7;
+    const maxAnswerId = 10;
     do {
         const dice = randomInt(6);
         game.roll(dice);
-        if (randomInt(10) == wrongAnswerId) {
+        if (randomInt(maxAnswerId) == wrongAnswerId) {
             notAWinner = game.wrongAnswer();
         } else {
             notAWinner = game.wasCorrectlyAnswered();
