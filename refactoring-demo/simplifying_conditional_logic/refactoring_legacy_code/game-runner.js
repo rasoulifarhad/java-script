@@ -5,7 +5,7 @@ module.exports = function gameRunner(randomInt) {
     function isCurrentAnswerCorrect() {
         const wrongAnswerId = 7;
         const maxAnswerId = 10;
-        return randomInt(maxAnswerId) !== wrongAnswerId;
+        return randomInt(maxAnswerId) != wrongAnswerId;
     }
 
     var notAWinner = false;
