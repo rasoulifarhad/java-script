@@ -94,6 +94,7 @@ module.exports = function () {
         console.log(players[currentPlayer] + " is the current player");
         console.log("They have rolled a " + roll);
         const lastPositionOnTheBoard = 11;
+        const boardSize = 12;
 
         if (inPenaltyBox[currentPlayer]) {
             if (roll % 2 != 0) {
@@ -102,7 +103,6 @@ module.exports = function () {
                 console.log(players[currentPlayer] + " is getting out of the penalty box");
                 places[currentPlayer] = places[currentPlayer] + roll;
                 if (places[currentPlayer] > lastPositionOnTheBoard) {
-                    const boardSize = 12;
                     places[currentPlayer] = places[currentPlayer] - boardSize;
                 }
 
@@ -117,7 +117,7 @@ module.exports = function () {
 
             places[currentPlayer] = places[currentPlayer] + roll;
             if (places[currentPlayer] > lastPositionOnTheBoard) {
-                places[currentPlayer] = places[currentPlayer] - 12;
+                places[currentPlayer] = places[currentPlayer] - boardSize;
             }
 
             console.log(players[currentPlayer] + "'s new location is " + places[currentPlayer]);
