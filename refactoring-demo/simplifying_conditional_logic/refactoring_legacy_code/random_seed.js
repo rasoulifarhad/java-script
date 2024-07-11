@@ -6,13 +6,14 @@ function random(seed) {
         return (s = (s * a) % m) / m;
     };
 }
-
-let rng = random(12345);
-console.log((Math.floor(rng() * 6)) + 1);
-console.log((Math.floor(rng() * 6)) + 1);
-console.log((Math.floor(rng() * 6)) + 1);
-console.log((Math.floor(rng() * 6)) + 1);
-console.log((Math.floor(rng() * 6)) + 1);
-console.log((Math.floor(rng() * 6)) + 1);
+for (let index = 0; index < 10; index++) {
+    let s = 12345;
+    let rng = random( s * index);  
+    console.log(" Seed: " + (s * index));
+    console.log((Math.floor(rng() * 6)) + 1);
+    console.log((Math.floor(rng() * 6)) + 1);
+    console.log((Math.floor(rng() * 6)) + 1);
+    console.log((Math.floor(rng() * 6)) + 1);
+}
 
 
