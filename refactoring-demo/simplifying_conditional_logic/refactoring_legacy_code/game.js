@@ -80,13 +80,17 @@ module.exports = function () {
 
 
     var askQuestion = function () {
-        if (currentCategory() == 'Pop')
+        const popCategory = 'Pop';
+        const scienceCategory = 'Science';
+        const sportsCategory = 'Sports';
+        const rockCategory = 'Rock';
+        if (currentCategory() == popCategory)
             console.log(popQuestions.shift());
-        if (currentCategory() == 'Science')
+        if (currentCategory() == scienceCategory)
             console.log(scienceQuestions.shift());
-        if (currentCategory() == 'Sports')
+        if (currentCategory() == sportsCategory)
             console.log(sportsQuestions.shift());
-        if (currentCategory() == 'Rock')
+        if (currentCategory() == rockCategory)
             console.log(rockQuestions.shift());
     };
 
