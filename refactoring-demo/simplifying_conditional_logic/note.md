@@ -1,4 +1,11 @@
 
+
+See https://code.tutsplus.com/refactoring-legacy-code-part-3-complex-conditionals--cms-20944t
+See https://learn.codesee.io/tackling-technical-debt-through-javascript-refactoring-part-2-techniques-of-refactoring-in-javascript/
+See https://www.stackbuilders.com/blog/refactoring-javascript-with-functional-patterns/
+See https://martinfowler.com/articles/refactoring-adaptive-model.html
+
+
 </br>
 
 > A good API clearly separates any functions that update data from those that only read data.
