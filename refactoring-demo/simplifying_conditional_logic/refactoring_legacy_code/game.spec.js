@@ -6,7 +6,16 @@ approvals.mocha();
 const _ = require('lodash');
 const {getRandom} = require('./rnd.js');
 const fs = require('fs');
+
 describe("The test environment", function() {
+
+  let expectedContent;
+
+  beforeEach(function() {
+    var data = fs.readFileSync('The_test_environment.should_pass.approved.txt');
+    expectedContent = data.toString();
+  });
+
   it("should pass", function() {
     expect(true).to.be.true;
     expect(true).to.be.equal(true)
@@ -27,17 +36,6 @@ describe("The test environment", function() {
     });
     console.log = oldLog;
     let actualContent = loggedLines.join("\n");
-    let expectedContent;
-    fs.readFile(
-      'The_test_environment.should_pass.approved.txt',
-      (err, data) => {
-        if(err) {
-          throw err;
-        }
-        expectedContent = data.toString();
-        expect(actualContent).to.be.equal(expectedContent);
-      }
-    );
-    
+    expect(actualContent).to.be.equal(expectedContent);
   });
 });
