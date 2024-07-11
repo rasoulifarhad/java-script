@@ -102,7 +102,7 @@ module.exports = function () {
 
                 console.log(players[currentPlayer] + " is getting out of the penalty box");
                 places[currentPlayer] = places[currentPlayer] + roll;
-                if (this.playerReachedEndOfBoard(lastPositionOnTheBoard)) {
+                if (this.playerShouldStartANewLap(lastPositionOnTheBoard)) {
                     places[currentPlayer] = places[currentPlayer] - boardSize;
                 }
 
@@ -182,7 +182,7 @@ module.exports = function () {
         return roll % 2 != 0;
     };
 
-    this.playerReachedEndOfBoard = function (lastPositionOnTheBoard) {
+    this.playerShouldStartANewLap = function (lastPositionOnTheBoard) {
         return places[currentPlayer] > lastPositionOnTheBoard;
     };
 };
