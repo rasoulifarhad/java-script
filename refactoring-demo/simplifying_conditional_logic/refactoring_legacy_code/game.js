@@ -97,7 +97,7 @@ module.exports = function () {
         const boardSize = 12;
 
         if (inPenaltyBox[currentPlayer]) {
-            if (roll % 2 != 0) {
+            if (this.isOdd(roll)) {
                 isGettingOutOfPenaltyBox = true;
 
                 console.log(players[currentPlayer] + " is getting out of the penalty box");
@@ -177,5 +177,11 @@ module.exports = function () {
             currentPlayer = 0;
         return true;
     };
+
+    this.isOdd = function (roll) {
+        return roll % 2 != 0;
+    };
+    
 };
+
 
