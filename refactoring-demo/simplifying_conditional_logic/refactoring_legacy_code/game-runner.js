@@ -7,7 +7,8 @@ module.exports = function gameRunner(randomInt) {
     game.add('Pat');
     game.add('Sue');
     do {
-        game.roll(randomInt(6));
+        const dice = randomInt(6);
+        game.roll(dice);
         if (randomInt(10) == 7) {
             notAWinner = game.wrongAnswer();
         } else {
