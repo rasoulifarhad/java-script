@@ -49,7 +49,8 @@ module.exports = function () {
     var sportsQuestions = new Array();
     var rockQuestions = new Array();
 
-    for (var i = 0; i < 50; i++) {
+    const questionInEachCategory = 50;
+    for (var i = 0; i < questionInEachCategory; i++) {
         popQuestions.push("Pop Question " + i);
         scienceQuestions.push("Science Question " + i);
         sportsQuestions.push("Sports Question " + i);
