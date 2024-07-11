@@ -8,25 +8,21 @@ module.exports = function gameRunner(randomInt) {
         return randomInt(maxAnswerId) !== wrongAnswerId;
     }
 
-    function run() {
-        var notAWinner = false;
-        var game = new Game();
-        game.add('Chet');
-        game.add('Pat');
-        game.add('Sue');
-        do {
-            const dice = randomInt(6);
-            game.roll(dice);
-            if (!isCurrentAnswerCorrect()) {
-                notAWinner = game.wrongAnswer();
-            } else {
-                notAWinner = game.wasCorrectlyAnswered();
-            }
-        } while (notAWinner);
+    var notAWinner = false;
+    var game = new Game();
+    game.add('Chet');
+    game.add('Pat');
+    game.add('Sue');
+    do {
+        const dice = randomInt(6);
+        game.roll(dice);
+        if (isCurrentAnswerCorrect()) {
+            notAWinner = game.wasCorrectlyAnswered();
+        } else {
+            notAWinner = game.wrongAnswer();
+        }
+    } while (notAWinner);
 
-    }
-
-    run();
 
 }
 
