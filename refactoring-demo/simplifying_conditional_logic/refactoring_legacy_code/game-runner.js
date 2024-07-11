@@ -2,10 +2,10 @@ var Game = require('./game');
 
 module.exports = function gameRunner(randomInt) {
 
-    function isCurrentAnswerWrong() {
+    function isCurrentAnswerCorrect() {
         const wrongAnswerId = 7;
         const maxAnswerId = 10;
-        return randomInt(maxAnswerId) == wrongAnswerId;
+        return randomInt(maxAnswerId) !== wrongAnswerId;
     }
 
     function run() {
@@ -17,7 +17,7 @@ module.exports = function gameRunner(randomInt) {
         do {
             const dice = randomInt(6);
             game.roll(dice);
-            if (isCurrentAnswerWrong()) {
+            if (!isCurrentAnswerCorrect()) {
                 notAWinner = game.wrongAnswer();
             } else {
                 notAWinner = game.wasCorrectlyAnswered();
