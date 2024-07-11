@@ -8,11 +8,12 @@ const {getRandom} = require('./rnd.js');
 const fs = require('fs');
 describe("The test environment", function() {
   it("should pass", function() {
-    expect(true).true
+    expect(true).to.be.true;
+    expect(true).to.be.equal(true)
   });
 
   it("should access the game", function() {
-    expect(Game).toBeDefined;
+    expect(Game).anything;
   });
 
   it("game should pass", function() {
