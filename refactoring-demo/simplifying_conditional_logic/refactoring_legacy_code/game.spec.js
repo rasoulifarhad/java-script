@@ -45,10 +45,11 @@ describe("The test environment", function () {
   });
 
   function addEnoughPlayers(game)  {
-    game.add('player#1');
-    game.add('player#2');
+    for (let index = 0; index < game.getMinimumNumberOfPlayers(); index++) {
+      game.add('player#' + index);    
+    }
   }
-  
+
   it("after adding two players to a new game it is playable", function () {
     const game = new Game();
     addEnoughPlayers(game);

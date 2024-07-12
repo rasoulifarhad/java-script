@@ -1,6 +1,9 @@
 exports = typeof window !== "undefined" && window !== null ? window : global;
 
 module.exports = function () {
+
+    var minimumNumberOfPlayers = 2;
+
     var players = new Array();
     var places = new Array(6);
     var purses = new Array(6);
@@ -9,6 +12,10 @@ module.exports = function () {
 
     var currentPlayer = 0;
     var isGettingOutOfPenaltyBox = false;
+
+    this.getMinimumNumberOfPlayers = function () {
+        return minimumNumberOfPlayers;
+    };
 
     var didPlayerWin = function () {
         return !(purses[currentPlayer] == 6)
@@ -58,8 +65,7 @@ module.exports = function () {
     };
 
     this.isPlayable = function (howManyPlayers) {
-        const minimumNumberOfPlayers = 2;
-        return this.howManyPlayers() >= minimumNumberOfPlayers;
+        return this.howManyPlayers() >= this.getMinimumNumberOfPlayers();
     };
 
     this.add = function (playerName) {
