@@ -12,10 +12,16 @@ describe("The test environment", function () {
 
   let expectedContent;
 
+  before(() => console.log('Testing started - before all tests'));
+
+  after(() => console.log('Testing finished - after all tests'));
+
   beforeEach(function () {
     var data = fs.readFileSync('The_test_environment.should_pass.approved.txt');
     expectedContent = data.toString();
   });
+
+  afterEach(() => console.log('After a test - exit a test'));
 
   it("should pass", function () {
     expect(true).to.be.true;
@@ -38,10 +44,14 @@ describe("The test environment", function () {
     expect(game.isPlayable()).to.be.false;
   });
 
+  function addEnoughPlayers(game)  {
+    game.add('player#1');
+    game.add('player#2');
+  }
+  
   it("after adding two players to a new game it is playable", function () {
     const game = new Game();
-    expect(game.add('player#1')).to.be.true;
-    expect(game.add('player#2')).to.be.true;
+    addEnoughPlayers(game);
     expect(game.isPlayable()).to.be.true;
   });
 
