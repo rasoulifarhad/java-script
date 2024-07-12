@@ -2,8 +2,7 @@ var Game = require('./game');
 
 module.exports = function gameRunner(randomInt) {
 
-    function getNotWinner(game, dice) {
-        game.roll(dice);
+    function getNotWinner(game) {
         return (isCurrentAnswerCorrect())
             ? game.wasCorrectlyAnswered()
             : game.wrongAnswer();
@@ -21,7 +20,9 @@ module.exports = function gameRunner(randomInt) {
     game.add('Pat');
     game.add('Sue');
     do {
-        notAWinner = getNotWinner(game, randomInt(6));
+        var dice = randomInt(6);
+        game.roll(dice);
+        notAWinner = getNotWinner(game);
     } while (notAWinner);
 
 
