@@ -4,8 +4,8 @@ module.exports = function gameRunner(randomInt) {
 
     function didSomebodyWin(game, isCurrentAnswerCorrect) {
         return (isCurrentAnswerCorrect)
-            ? game.wasCorrectlyAnswered()
-            : game.wrongAnswer();
+            ? ! game.wasCorrectlyAnswered()
+            : ! game.wrongAnswer();
     }
  
     function isCurrentAnswerCorrect() {
@@ -21,7 +21,7 @@ module.exports = function gameRunner(randomInt) {
     do {
         var dice = randomInt(6);
         game.roll(dice);
-    } while (didSomebodyWin(game, isCurrentAnswerCorrect()));
+    } while (!didSomebodyWin(game, isCurrentAnswerCorrect()));
 
 }
 
