@@ -2,13 +2,22 @@ var Game = require('./game');
 
 module.exports = function gameRunner(randomInt) {
 
+    function getNotWinner(game) {
+        var notAWinner = false;
+        if (isCurrentAnswerCorrect()) {
+            notAWinner = game.wasCorrectlyAnswered();
+        } else {
+            notAWinner = game.wrongAnswer();
+        }
+        return notAWinner;
+    }
+ 
     function isCurrentAnswerCorrect() {
         const wrongAnswerId = 7;
         const maxAnswerId = 10;
         return randomInt(maxAnswerId) != wrongAnswerId;
     }
 
-    var notAWinner = false;
     var game = new Game();
     game.add('Chet');
     game.add('Pat');
@@ -16,14 +25,11 @@ module.exports = function gameRunner(randomInt) {
     do {
         const dice = randomInt(6);
         game.roll(dice);
-        if (isCurrentAnswerCorrect()) {
-            notAWinner = game.wasCorrectlyAnswered();
-        } else {
-            notAWinner = game.wrongAnswer();
-        }
+        var notAWinner = getNotWinner(game);
     } while (notAWinner);
 
 
 }
+
 
 
