@@ -58,6 +58,7 @@ describe("The test environment", function () {
   };
 
   it("it can add new players", function () {
+    expect(game.howManyPlayers()).equal(0);
     game.add("A player");
     expect(game.howManyPlayers()).equal(1);
   });
