@@ -59,7 +59,7 @@ module.exports = function () {
 
     this.isPlayable = function (howManyPlayers) {
         const minimumNumberOfPlayers = 2;
-        return howManyPlayers >= minimumNumberOfPlayers;
+        return this.howManyPlayers() >= minimumNumberOfPlayers;
     };
 
     this.add = function (playerName) {

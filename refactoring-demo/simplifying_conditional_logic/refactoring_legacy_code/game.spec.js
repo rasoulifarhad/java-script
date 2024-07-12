@@ -35,6 +35,13 @@ describe("The test environment", function () {
     expect(game.isPlayable()).to.be.false;
   });
 
+  it("after adding two players to a new game it is playable", function () {
+    const game = new Game();
+    expect(game.add('player#1')).to.be.true;
+    expect(game.add('player#2')).to.be.true;
+    expect(game.isPlayable()).to.be.true;
+  });
+
   it("game should pass", function () {
     const loggedLines = [];
     const oldLog = console.log;
