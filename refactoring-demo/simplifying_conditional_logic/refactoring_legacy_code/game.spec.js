@@ -11,6 +11,7 @@ const exp = require('constants');
 describe("The test environment", function () {
 
   let expectedContent;
+  let game;
 
   before(() => console.log('Testing started - before all tests'));
 
@@ -19,6 +20,7 @@ describe("The test environment", function () {
   beforeEach(function () {
     var data = fs.readFileSync('The_test_environment.should_pass.approved.txt');
     expectedContent = data.toString();
+    game = new Game();
   });
 
   afterEach(() => console.log('After a test - exit a test'));
@@ -33,12 +35,10 @@ describe("The test environment", function () {
   });
 
   it("should create the game", function () {
-    const game = new Game();
     expect(game).anything;
   });
 
   it("new game is not playable", function () {
-    const game = new Game();
     addJustNotEnoughPlayers(game);
     expect(game.isPlayable()).to.be.false;
   });
@@ -58,7 +58,6 @@ describe("The test environment", function () {
   }
 
   it("after adding two players to a new game it is playable", function () {
-    const game = new Game();
     addEnoughPlayers(game);
     expect(game.isPlayable()).to.be.true;
   });
