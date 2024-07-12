@@ -14,6 +14,7 @@ module.exports = function gameRunner(randomInt) {
         return randomInt(maxAnswerId) != wrongAnswerId;
     }
 
+    var notAWinner
     var game = new Game();
     game.add('Chet');
     game.add('Pat');
@@ -21,7 +22,7 @@ module.exports = function gameRunner(randomInt) {
     do {
         const dice = randomInt(6);
         game.roll(dice);
-        var notAWinner = getNotWinner(game);
+        notAWinner = getNotWinner(game);
     } while (notAWinner);
 
 
