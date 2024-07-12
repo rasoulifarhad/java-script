@@ -21,8 +21,7 @@ module.exports = function gameRunner(randomInt) {
     game.add('Pat');
     game.add('Sue');
     do {
-        const dice = randomInt(6);
-        notAWinner = getNotWinner(game, dice);
+        notAWinner = getNotWinner(game, randomInt(6));
     } while (notAWinner);
 
 
