@@ -70,20 +70,28 @@ module.exports = function () {
 
     this.add = function (playerName) {
         players.push(playerName);
-        places[this.howManyPlayers() - 1] = 0;
-        purses[this.howManyPlayers() - 1] = 0;
-        inPenaltyBox[this.howManyPlayers() - 1] = false;
+        setDefaultPlayerParametersFor(this.nextPlayerId());
 
         console.log(playerName + " was added");
         console.log("They are player number " + players.length);
 
         return true;
+
     };
 
     this.howManyPlayers = function () {
         return players.length;
     };
 
+    this.nextPlayerId = function () {
+        return this.howManyPlayers() - 1;
+    }
+
+    var setDefaultPlayerParametersFor = function (playerId) {
+        places[playerId] = 0;
+        purses[playerId] = 0;
+        inPenaltyBox[playerId] = false;
+    }
 
     var askQuestion = function () {
         const popCategory = 'Pop';
