@@ -39,26 +39,26 @@ describe("The test environment", function () {
   });
 
   it("new game is not playable", function () {
-    addJustNotEnoughPlayers(game);
+    addJustNotEnoughPlayers();
     expect(game.isPlayable()).to.be.false;
   });
 
-  function addJustNotEnoughPlayers(game)  {
-    addManyPlayers(game, game.getMinimumNumberOfPlayers() - 1);
+  function addJustNotEnoughPlayers()  {
+    addManyPlayers(game.getMinimumNumberOfPlayers() - 1);
   }
 
-  function addEnoughPlayers(game)  {
-    addManyPlayers(game, game.getMinimumNumberOfPlayers());
+  function addEnoughPlayers()  {
+    addManyPlayers(game.getMinimumNumberOfPlayers());
   }
 
-  function addManyPlayers(game, numberOfPlayers) {
+  function addManyPlayers(numberOfPlayers) {
     for (let index = 0; index < numberOfPlayers; index++) {
       game.add('player#' + index);    
     }
   }
 
   it("after adding two players to a new game it is playable", function () {
-    addEnoughPlayers(game);
+    addEnoughPlayers();
     expect(game.isPlayable()).to.be.true;
   });
 
