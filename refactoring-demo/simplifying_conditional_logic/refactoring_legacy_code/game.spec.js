@@ -39,10 +39,15 @@ describe("The test environment", function () {
 
   it("new game is not playable", function () {
     const game = new Game();
-    expect(game.isPlayable()).to.be.false;
-    game.add('player#1');
+    addJustNotEnoughPlayers(game);
     expect(game.isPlayable()).to.be.false;
   });
+
+  function addJustNotEnoughPlayers(game)  {
+    for (let index = 0; index < game.getMinimumNumberOfPlayers() - 1; index++) {
+      game.add('player#' + index);    
+    }
+  }
 
   function addEnoughPlayers(game)  {
     for (let index = 0; index < game.getMinimumNumberOfPlayers(); index++) {
