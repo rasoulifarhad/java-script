@@ -44,13 +44,15 @@ describe("The test environment", function () {
   });
 
   function addJustNotEnoughPlayers(game)  {
-    for (let index = 0; index < game.getMinimumNumberOfPlayers() - 1; index++) {
-      game.add('player#' + index);    
-    }
+    addManyPlayers(game, game.getMinimumNumberOfPlayers() - 1);
   }
 
   function addEnoughPlayers(game)  {
-    for (let index = 0; index < game.getMinimumNumberOfPlayers(); index++) {
+    addManyPlayers(game, game.getMinimumNumberOfPlayers());
+  }
+
+  function addManyPlayers(game, numberOfPlayers) {
+    for (let index = 0; index < numberOfPlayers; index++) {
       game.add('player#' + index);    
     }
   }
