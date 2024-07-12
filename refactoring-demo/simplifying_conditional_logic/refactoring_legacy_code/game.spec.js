@@ -6,6 +6,7 @@ approvals.mocha();
 const _ = require('lodash');
 const { getRandom } = require('./rnd.js');
 const fs = require('fs');
+const exp = require('constants');
 
 describe("The test environment", function () {
 
@@ -32,6 +33,8 @@ describe("The test environment", function () {
 
   it("new game is not playable", function () {
     const game = new Game();
+    expect(game.isPlayable()).to.be.false;
+    game.add('player#1');
     expect(game.isPlayable()).to.be.false;
   });
 
