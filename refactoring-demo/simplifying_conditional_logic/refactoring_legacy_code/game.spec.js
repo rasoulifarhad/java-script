@@ -27,7 +27,12 @@ describe("The test environment", function () {
 
   it("should create the game", function () {
     const game = new Game();
-    expect(Game).anything;
+    expect(game).anything;
+  });
+
+  it("new game is not playable", function () {
+    const game = new Game();
+    expect(game.isPlayable()).to.be.false;
   });
 
   it("game should pass", function () {
