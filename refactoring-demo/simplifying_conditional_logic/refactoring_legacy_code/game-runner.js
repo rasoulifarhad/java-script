@@ -3,13 +3,11 @@ var Game = require('./game');
 module.exports = function gameRunner(randomInt) {
 
     function getNotWinner(game) {
-        var notAWinner = false;
         if (isCurrentAnswerCorrect()) {
-            notAWinner = game.wasCorrectlyAnswered();
+            return game.wasCorrectlyAnswered();
         } else {
-            notAWinner = game.wrongAnswer();
+            return game.wrongAnswer();
         }
-        return notAWinner;
     }
  
     function isCurrentAnswerCorrect() {
