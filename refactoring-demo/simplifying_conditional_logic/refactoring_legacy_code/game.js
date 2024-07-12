@@ -163,7 +163,7 @@ module.exports = function () {
             var winner = didPlayerWin();
 
             currentPlayer += 1;
-            if (currentPlayer == players.length)
+            if (this.shouldResetCurrentPlayer())
                 currentPlayer = 0;
 
             return winner;
@@ -176,7 +176,7 @@ module.exports = function () {
         inPenaltyBox[currentPlayer] = true;
 
         currentPlayer += 1;
-        if (currentPlayer == players.length)
+        if (this.shouldResetCurrentPlayer())
             currentPlayer = 0;
         return true;
     };
