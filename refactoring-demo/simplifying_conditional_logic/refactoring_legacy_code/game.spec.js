@@ -69,6 +69,12 @@ describe("The test environment", function () {
     expect(game.isPlayable()).to.be.true;
   });
 
+  it("when player enter a wrong answer it is sent to the penalty box", function () {
+    game.add("A player");
+    game.wrongAnswer();
+    expect(game.isPlayerInPnaltyBox()).to.be.true;
+  });
+
   it("game should pass", function () {
     const loggedLines = [];
     const oldLog = console.log;

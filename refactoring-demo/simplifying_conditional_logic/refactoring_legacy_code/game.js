@@ -13,6 +13,10 @@ module.exports = function () {
     var currentPlayer = 0;
     var isGettingOutOfPenaltyBox = false;
 
+    this.currentPlayer = function () {
+        return currentPlayer;
+    };
+
     this.getMinimumNumberOfPlayers = function () {
         return minimumNumberOfPlayers;
     };
