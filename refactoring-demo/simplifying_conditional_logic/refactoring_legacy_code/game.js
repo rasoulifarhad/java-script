@@ -149,7 +149,8 @@ module.exports = function () {
                 isGettingOutOfPenaltyBox = false;
             }
         } else {
-
+            // Player is placed to the next position based on the rolled number, information 
+            // is told to the user, and we ask a question
             places[currentPlayer] = places[currentPlayer] + rolledNumber;
             if (this.playerShouldStartANewLap()) {
                 places[currentPlayer] = places[currentPlayer] - boardSize;
