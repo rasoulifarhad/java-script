@@ -73,6 +73,7 @@ describe("The test environment", function () {
     game.add("A player");
     game.wrongAnswer();
     expect(game.isPlayerInPnaltyBox()).to.be.true;
+    expect(game.currentPlayer()).equal(0);
   });
 
   it("game should pass", function () {
