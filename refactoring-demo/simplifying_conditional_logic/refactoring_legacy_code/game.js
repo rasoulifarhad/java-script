@@ -13,16 +13,30 @@ module.exports = function () {
     var currentPlayer = 0;
     var isGettingOutOfPenaltyBox = false;
 
-    this.currentPlayer = function () {
+    numberOfCoinsToWin = 6;
+
+    this.getNumberOfCoinsToWin = function () {
+        return numberOfCoinsToWin;
+    }
+
+    this.getCurrentPlayer = function () {
         return currentPlayer;
     };
+
+    this.setCurrentPlayer = function (playerId) {
+        currentPlayer = playerId;
+    };
+
+    this.setCurrentPlayerPurses = function (count) {
+        purses[currentPlayer] = count;
+    }
 
     this.getMinimumNumberOfPlayers = function () {
         return minimumNumberOfPlayers;
     };
 
-    var didPlayerWin = function () {
-        return !(purses[currentPlayer] == 6)
+    this.didPlayerNotWin = function () {
+        return !(purses[currentPlayer] == numberOfCoinsToWin);
     };
 
     var currentCategory = function () {
@@ -155,7 +169,7 @@ module.exports = function () {
                 console.log(players[currentPlayer] + " now has " +
                     purses[currentPlayer] + " Gold Coins.");
 
-                var winner = didPlayerWin();
+                var winner = this.didPlayerNotWin();
                 currentPlayer += 1;
                 if (this.shouldResetCurrentPlayer())
                     currentPlayer = 0;
@@ -178,7 +192,7 @@ module.exports = function () {
             console.log(players[currentPlayer] + " now has " +
                 purses[currentPlayer] + " Gold Coins.");
 
-            var winner = didPlayerWin();
+            var winner = this.didPlayerNotWin();
 
             currentPlayer += 1;
             if (this.shouldResetCurrentPlayer())

@@ -73,13 +73,23 @@ describe("The test environment", function () {
     game.add("A player");
     game.wrongAnswer();
     expect(game.isPlayerInPnaltyBox()).to.be.true;
-    expect(game.currentPlayer()).equal(0);
+    expect(game.getCurrentPlayer()).equal(0);
   });
 
   it("current Player Is NotReset After Wrong Answer If Other Players Did Not Yet Play", function () {
     addEnoughPlayers();
     game.wrongAnswer();
-    expect(game.currentPlayer()).equal(1);
+    expect(game.getCurrentPlayer()).equal(1);
+  });
+
+  it("test player wins with the correct number of coins", function () {
+    addEnoughPlayers();
+    expect(game.getNumberOfCoinsToWin()).equal(6);
+    game.setCurrentPlayer(0);
+    expect(game.getCurrentPlayer()).equal(0);
+    game.setCurrentPlayerPurses(game.getNumberOfCoinsToWin());
+    expect(game.didPlayerNotWin()).to.be.false;
+
   });
 
   it("game should pass", function () {
