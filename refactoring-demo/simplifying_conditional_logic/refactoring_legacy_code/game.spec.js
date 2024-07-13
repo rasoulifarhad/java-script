@@ -76,6 +76,12 @@ describe("The test environment", function () {
     expect(game.currentPlayer()).equal(0);
   });
 
+  it("current Player Is NotReset After Wrong Answer If Other Players Did Not Yet Play", function () {
+    addEnoughPlayers();
+    game.wrongAnswer();
+    expect(game.currentPlayer()).equal(1);
+  });
+
   it("game should pass", function () {
     const loggedLines = [];
     const oldLog = console.log;
