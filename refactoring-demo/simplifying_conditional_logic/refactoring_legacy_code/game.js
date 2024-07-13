@@ -126,17 +126,17 @@ module.exports = function () {
             console.log(rockQuestions.shift());
     };
 
-    this.roll = function (roll) {
+    this.roll = function (rolledNumber) {
         console.log(players[currentPlayer] + " is the current player");
-        console.log("They have rolled a " + roll);
+        console.log("They have rolled a " + rolledNumber);
         const boardSize = 12;
 
         if (this.isPlayerInPnaltyBox()) {
-            if (this.isOdd(roll)) {
+            if (this.isOdd(rolledNumber)) {
                 isGettingOutOfPenaltyBox = true;
 
                 console.log(players[currentPlayer] + " is getting out of the penalty box");
-                places[currentPlayer] = places[currentPlayer] + roll;
+                places[currentPlayer] = places[currentPlayer] + rolledNumber;
                 if (this.playerShouldStartANewLap()) {
                     places[currentPlayer] = places[currentPlayer] - boardSize;
                 }
@@ -150,7 +150,7 @@ module.exports = function () {
             }
         } else {
 
-            places[currentPlayer] = places[currentPlayer] + roll;
+            places[currentPlayer] = places[currentPlayer] + rolledNumber;
             if (this.playerShouldStartANewLap()) {
                 places[currentPlayer] = places[currentPlayer] - boardSize;
             }
