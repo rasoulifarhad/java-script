@@ -17,7 +17,7 @@ module.exports = function () {
 
     this.getNumberOfCoinsToWin = function () {
         return numberOfCoinsToWin;
-    }
+    };
 
     this.getCurrentPlayer = function () {
         return currentPlayer;
@@ -29,7 +29,7 @@ module.exports = function () {
 
     this.setCurrentPlayerPurses = function (count) {
         purses[currentPlayer] = count;
-    }
+    };
 
     this.getMinimumNumberOfPlayers = function () {
         return minimumNumberOfPlayers;
@@ -103,13 +103,13 @@ module.exports = function () {
 
     this.nextPlayerId = function () {
         return this.howManyPlayers() - 1;
-    }
+    };
 
     var setDefaultPlayerParametersFor = function (playerId) {
         places[playerId] = 0;
         purses[playerId] = 0;
         inPenaltyBox[playerId] = false;
-    }
+    };
 
     var askQuestion = function () {
         const popCategory = 'Pop';
@@ -225,15 +225,28 @@ module.exports = function () {
 
     this.isPlayerInPenaltyBox = function () {
         return inPenaltyBox[currentPlayer];
-    }
+    };
 
     this.setPlayerInPenaltyBox = function (inPenaltyBox) {
         inPenaltyBox[currentPlayer] = inPenaltyBox;
-    }
+    };
+
+    this.setPlayerName = function (name) {
+        players[currentPlayer] = name;
+    };
+
+    this.setPlayerPlace = function (place) {
+        places[currentPlayer] = place;
+    };
+
+    this.getPlayerPlace = function () {
+        return places[currentPlayer];
+    };
+
 
     this.shouldResetCurrentPlayer = function () {
         return currentPlayer == players.length;
-    }
+    };
     
 };
 

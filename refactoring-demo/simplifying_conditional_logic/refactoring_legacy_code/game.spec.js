@@ -13,17 +13,11 @@ describe("The test environment", function () {
   let expectedContent;
   let game;
 
-  before(() => console.log('Testing started - before all tests'));
-
-  after(() => console.log('Testing finished - after all tests'));
-
   beforeEach(function () {
     var data = fs.readFileSync('The_test_environment.should_pass.approved.txt');
     expectedContent = data.toString();
     game = new Game();
   });
-
-  afterEach(() => console.log('After a test - exit a test'));
 
   it("should pass", function () {
     expect(true).to.be.true;
@@ -93,10 +87,12 @@ describe("The test environment", function () {
   });
 
   it("test second part of roll logic", function () {
-    addEnoughPlayers();
     game.setCurrentPlayer(0);
+    game.setPlayerName('john');
     game.setPlayerInPenaltyBox(false);
+    game.setPlayerPlace(2);
     game.roll(1);
+    expect(game.getPlayerPlace()).equal(3);
   });
 
   it("game should pass", function () {
