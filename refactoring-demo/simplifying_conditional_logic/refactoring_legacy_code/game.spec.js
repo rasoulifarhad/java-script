@@ -72,11 +72,11 @@ describe("The test environment", function () {
   it("when player enter a wrong answer it is sent to the penalty box", function () {
     game.add("A player");
     game.wrongAnswer();
-    expect(game.isPlayerInPnaltyBox()).to.be.true;
+    expect(game.isPlayerInPenaltyBox()).to.be.true;
     expect(game.getCurrentPlayer()).equal(0);
   });
 
-  it("current Player Is NotReset After Wrong Answer If Other Players Did Not Yet Play", function () {
+  it("current player is not reset after wrong answer if other players did not yet play", function () {
     addEnoughPlayers();
     game.wrongAnswer();
     expect(game.getCurrentPlayer()).equal(1);
@@ -90,6 +90,13 @@ describe("The test environment", function () {
     game.setCurrentPlayerPurses(game.getNumberOfCoinsToWin());
     expect(game.didPlayerNotWin()).to.be.false;
 
+  });
+
+  it("test second part of roll logic", function () {
+    addEnoughPlayers();
+    game.setCurrentPlayer(0);
+    game.setPlayerInPenaltyBox(false);
+    game.roll(1);
   });
 
   it("game should pass", function () {

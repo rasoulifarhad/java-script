@@ -131,7 +131,7 @@ module.exports = function () {
         console.log("They have rolled a " + rolledNumber);
         const boardSize = 12;
 
-        if (this.isPlayerInPnaltyBox()) {
+        if (this.isPlayerInPenaltyBox()) {
             if (this.isOdd(rolledNumber)) {
                 isGettingOutOfPenaltyBox = true;
 
@@ -163,7 +163,7 @@ module.exports = function () {
     };
 
     this.wasCorrectlyAnswered = function () {
-        if (this.isPlayerInPnaltyBox()) {
+        if (this.isPlayerInPenaltyBox()) {
             if (isGettingOutOfPenaltyBox) {
                 console.log('Answer was correct!!!!');
                 purses[currentPlayer] += 1;
@@ -223,8 +223,12 @@ module.exports = function () {
         return places[currentPlayer] > lastPositionOnTheBoard;
     };
 
-    this.isPlayerInPnaltyBox = function () {
+    this.isPlayerInPenaltyBox = function () {
         return inPenaltyBox[currentPlayer];
+    }
+
+    this.setPlayerInPenaltyBox = function (inPenaltyBox) {
+        inPenaltyBox[currentPlayer] = inPenaltyBox;
     }
 
     this.shouldResetCurrentPlayer = function () {
