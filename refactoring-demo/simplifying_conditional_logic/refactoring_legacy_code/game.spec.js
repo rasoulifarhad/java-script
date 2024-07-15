@@ -13,7 +13,7 @@ describe("The test environment", function () {
   let expectedContent;
   let game;
 
-  beforeEach(function () {
+  this.beforeEach(function () {
     var data = fs.readFileSync('The_test_environment.should_pass.approved.txt');
     expectedContent = data.toString();
     game = new Game();

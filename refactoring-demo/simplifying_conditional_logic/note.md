@@ -11,6 +11,7 @@ See https://github.com/caradojo/trivia/tree/master/java
 See https://semaphoreci.com/community/tutorials/getting-started-with-node-js-and-mocha
 See https://www.chaijs.com/api/bdd/
 See https://www.chaijs.com/api/bdd/
+See https://github.com/emilybache/Theatrical-Players-Refactoring-Kata/tree/main/java/src/main/java/theatricalplays
 
 </br>
 
