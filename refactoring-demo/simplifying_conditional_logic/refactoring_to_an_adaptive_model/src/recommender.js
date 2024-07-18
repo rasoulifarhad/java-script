@@ -32,9 +32,7 @@ export default function(spec) {
 // that contains the particular logic that we need (recommendationModel.es6) together 
 // with an engine (executeModel that takes that data structure and executes it.
 function executeModel(spec) {
-    let result = [];
-    model
+    return model
         .filter((r) => r.condition(spec))
-        .forEach((r) => result.push(r.result));
-    return result;
+        .map((r) => r.result);
 }
