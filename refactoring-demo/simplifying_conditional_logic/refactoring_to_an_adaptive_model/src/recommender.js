@@ -35,6 +35,6 @@ function executeModel(spec) {
     let result = [];
     model
         .filter((r) => r.condition(spec))
-        .forEach((r) => r.action(result));
+        .forEach((r) => result.push(r.result));
     return result;
 }
