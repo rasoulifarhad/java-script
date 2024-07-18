@@ -1,10 +1,13 @@
 import { assert } from "chai";
-import recommender from "./recommender";
+import { executeModel } from "./recommender";
 
 describe("", function() {
 
     it('night only', function () {
-        assert.include(recommender({atNight: true}), 'whispering death');
+        assert.include(
+            executeModel({atNight: true}, [{"condition": "atNight", "result": "expected"}]),
+            'expected'
+        );
     });
 
 

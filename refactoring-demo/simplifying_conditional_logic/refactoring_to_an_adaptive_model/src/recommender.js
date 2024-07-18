@@ -43,7 +43,7 @@ function countryIncludedIn(spec, anArray) {
 // That obvious simplification is nice, but the conditions are still JavaScript code, 
 // which won't fit our needs for running in a non JavaScript environment. I'll need to 
 // replace the condition code with data I can interpret.
-function executeModel(spec, model) {
+export function executeModel(spec, model) {
     return model
         .filter((r) => isActive(r, spec))
         .map((r) => r.result);
