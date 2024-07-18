@@ -10,5 +10,10 @@ describe("", function() {
         );
     });
 
+    it('country', function () {
+        const model = [{condition: 'countryIncludedIn', conditionArgs: ["sparta", "atlantis"], result: 'expected'}];
+        expect(executeModel({country: "sparta"}, model)).include("expected");
+        expect(executeModel({country: "atlantis"}, model)).include("expected");
+    });
 
 });
