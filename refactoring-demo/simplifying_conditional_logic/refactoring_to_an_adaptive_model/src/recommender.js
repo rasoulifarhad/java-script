@@ -11,7 +11,6 @@ export default function(spec) {
     let result = [];
 
     result.concat(executeModel(spec));
-    if(seasonIncludes("winter")) result.push("beefy");
     if(seasonIncludes("summer")) {
         if(["sparta", "atlantis"].includes(spec.country)) result.push("white lightening");
     }
