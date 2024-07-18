@@ -9,7 +9,8 @@ import getModel from './recommendationModel';
 export default function(spec) {
 
     let result = [];
-    if(spec.atNight) result.push("whispering death");
+    
+    result.concat(executeModel(spec));
     if(spec.seasons && spec.seasons.includes("winter")) result.push("beefy");
     if(spec.seasons && spec.seasons.includes("summer")) {
         if(["sparta", "atlantis"].includes(spec.country)) result.push("white lightening");
