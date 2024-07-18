@@ -56,5 +56,8 @@ function isActive(rule, spec)  {
     if(rule === 'seasonIncludes') {
         return seasonIncludes(spec, rule.conditionArgs[0]);
     }
+    if(rule === 'countryIncludedIn') {
+        return rule.conditionArgs.includes(spec.country);
+    }
     throw new Error("unable to handle " + rule.condition);
 }
