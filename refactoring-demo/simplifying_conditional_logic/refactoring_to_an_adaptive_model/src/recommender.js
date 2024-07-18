@@ -1,5 +1,6 @@
+
 const  _ =  require('lodash');
-import model from './recommendationModel.js'
+import getModel from './recommendationModel';
 
 // The function takes a spec, a simple object that contains information about 
 // how the potion will be used. The logic then interrogates the specification 
@@ -36,7 +37,11 @@ export default function(spec) {
 // which won't fit our needs for running in a non JavaScript environment. I'll need to 
 // replace the condition code with data I can interpret.
 function executeModel(spec) {
-    return model
-        .filter((r) => r.condition(spec))
+    return getModel()
+        .filter((r) => isActive(r, spec))
         .map((r) => r.result);
+}
+
+function isActive(rule, spec)  {
+    return true;
 }
