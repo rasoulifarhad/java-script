@@ -1,0 +1,19 @@
+{
+    "name": "refactoring_to_an_adaptive_model",
+    "version": "",
+    "description": "",
+    "main": "src/recommender.js",
+    "scripts": {
+        "test": "mocha *.spec.js"
+    },
+    "author": "",
+    "license": "ISC",
+    "devDependencies": {
+        "approvals": "^7.1.2",
+        "chai": "^3.5.0",
+        "mocha": "^3.2.9"
+    },
+    "dependencies": {
+        "lodash": "^4.17.4"
+    }
+}
