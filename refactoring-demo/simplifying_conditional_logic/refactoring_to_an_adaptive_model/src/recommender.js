@@ -28,6 +28,9 @@ export default function(spec) {
 
 }
 
+// Here you can see the general form of an adaptive model. We have a data structure 
+// that contains the particular logic that we need (recommendationModel.es6) together 
+// with an engine (executeModel that takes that data structure and executes it.
 function executeModel(spec) {
     let result = [];
     model
