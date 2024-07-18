@@ -1,4 +1,5 @@
 const  _ =  require('lodash');
+import model from './recommendationModel.js'
 
 // The function takes a spec, a simple object that contains information about 
 // how the potion will be used. The logic then interrogates the specification 
@@ -25,4 +26,12 @@ export default function(spec) {
     }
     return _uniq(result);
 
+}
+
+function executeModel(spec) {
+    let result = [];
+    model
+        .filter((r) => r.condition(spec))
+        .forEach((r) => r.action(result));
+    return result;
 }
