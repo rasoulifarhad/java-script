@@ -43,5 +43,8 @@ function executeModel(spec) {
 }
 
 function isActive(rule, spec)  {
-    return true;
+    if(rule.condition === 'atNight') {
+        return spec.atNight;
+    }
+    throw new Error("unable to handle " + rule.condition);
 }
