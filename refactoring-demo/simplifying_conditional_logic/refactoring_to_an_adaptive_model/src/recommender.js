@@ -12,7 +12,7 @@ export default function(spec) {
 
     result.concat(executeModel(spec));
     if(seasonIncludes("summer")) {
-        if(["sparta", "atlantis"].includes(spec.country)) result.push("white lightening");
+        if(countryIncludedIn(spec, ["sparta", "atlantis"])) result.push("white lightening");
     }
     if(spec.minDuration >= 150) {
         if(seasonIncludes("summer")) {
