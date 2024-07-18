@@ -31,6 +31,10 @@ export default function(spec) {
 // Here you can see the general form of an adaptive model. We have a data structure 
 // that contains the particular logic that we need (recommendationModel.es6) together 
 // with an engine (executeModel that takes that data structure and executes it.
+//
+// That obvious simplification is nice, but the conditions are still JavaScript code, 
+// which won't fit our needs for running in a non JavaScript environment. I'll need to 
+// replace the condition code with data I can interpret.
 function executeModel(spec) {
     return model
         .filter((r) => r.condition(spec))
