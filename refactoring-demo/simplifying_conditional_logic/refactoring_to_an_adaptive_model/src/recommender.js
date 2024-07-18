@@ -9,14 +9,14 @@ import getModel from './recommendationModel';
 export default function(spec) {
 
     let result = [];
-    
+
     result.concat(executeModel(spec));
-    if(spec.seasons && spec.seasons.includes("winter")) result.push("beefy");
-    if(spec.seasons && spec.seasons.includes("summer")) {
+    if(seasonIncludes("winter")) result.push("beefy");
+    if(seasonIncludes("summer")) {
         if(["sparta", "atlantis"].includes(spec.country)) result.push("white lightening");
     }
     if(spec.minDuration >= 150) {
-        if(spec.seasons && spec.seasons.includes("summer")) {
+        if(seasonIncludes("summer")) {
             if(spec.minDuration < 350) result.push("white lightening");
             else if(spec.minDuration < 570) result.push("little master");
             else result.push("wall");
@@ -28,6 +28,10 @@ export default function(spec) {
     }
     return _uniq(result);
 
+}
+
+function seasonIncludes(spec, arg) {
+    return spec.seasons && spec.seasons.includes(arg);
 }
 
 // Here you can see the general form of an adaptive model. We have a data structure 
