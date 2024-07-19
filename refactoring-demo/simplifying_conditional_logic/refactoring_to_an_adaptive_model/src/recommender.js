@@ -8,29 +8,31 @@ const recommender =  (spec) => {
 
     result.concat(executeModel(spec, getModel()));
     const summerPicks = [
-        [150, null],
+        [150, []],
         [350, "white lightening"],
         [570, "little master"],
         [infinity, "wall"]
     ];
     const nonSummerPicks = [
-        [150, null],
+        [150, []],
         [450, "white lightening"],
         [infinity, "little master"]
     ];
     if(seasonIncludes("summer")) {
-        result.push(pickMinDuration(spec, summerPicks));
+        result.concat(pickMinDuration(spec, summerPicks));
     }
     else {
-        result.push(pickMinDuration(spec, nonSummerPicks));
+        result.concat(pickMinDuration(spec, nonSummerPicks));
     }
-    return _.uniq(result).filter((v) => null != v);; 
+    return _.uniq(result); 
 
 }
 
 function pickMinDuration(spec, range) {
     if(spec.minDuration) {
         return pickFromRange(summerPicks, spec.minDuration);
+    } else {
+        return [];
     }
 
 }
