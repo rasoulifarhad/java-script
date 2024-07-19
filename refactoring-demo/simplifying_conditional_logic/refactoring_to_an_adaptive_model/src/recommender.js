@@ -53,10 +53,10 @@ function isActive(rule, spec)  {
     if(rule.condition === 'atNight') {
         return spec.atNight;
     }
-    if(rule === 'seasonIncludes') {
+    if(rule.condition === 'seasonIncludes') {
         return seasonIncludes(spec, rule.conditionArgs[0]);
     }
-    if(rule === 'countryIncludedIn') {
+    if(rule.condition === 'countryIncludedIn') {
         return rule.conditionArgs.includes(spec.country);
     }
     throw new Error("unable to handle " + rule.condition);
