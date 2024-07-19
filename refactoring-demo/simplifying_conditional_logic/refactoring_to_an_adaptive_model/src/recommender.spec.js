@@ -47,7 +47,7 @@ describe('min duration rule', function () {
     const range = [
         [5, []],
         [10, 'low'],
-        [infinity, 'high' ],
+        ["infinity", 'high' ],
     ];
     const model = [
         {
