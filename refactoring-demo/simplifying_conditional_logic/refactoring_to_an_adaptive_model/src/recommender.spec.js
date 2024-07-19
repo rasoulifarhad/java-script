@@ -12,6 +12,10 @@ describe("test", function() {
             'expected'
         );
     });
+    it('seasons', function () {
+        const model = [{"condition": "seasonIncludes", "conditionArgs": ["summer"], "result": "expected"}];
+        expect(executeModel({seasons: "summer"}, model)).include("expected");
+    });
 
     it('country', function () {
         const model = [{"condition": "countryIncludedIn", "conditionArgs": ["sparta", "atlantis"], "result": "expected"}];
