@@ -6,7 +6,7 @@ const executeModel =  require('./recommender_old.js').executeModel;
 
 describe("", function() {
 
-    it('night only', function () {
+    it('night only old', function () {
         assert.include(recommender({atNight: true}), 'whispering death');
     });
 
