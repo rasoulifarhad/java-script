@@ -52,7 +52,12 @@ const  executeModel = (spec, model) => {
 }
 
 function result(r, spec) {
-    return r.result;
+    if(r.result) {
+        return r.result;
+    } else if(r.resultFunction === 'pickMinDuration') {
+        return pickMinDuration(spec, r.resultArgs[0]);
+    }
+
 }
 
 function isActive(rule, spec)  {
