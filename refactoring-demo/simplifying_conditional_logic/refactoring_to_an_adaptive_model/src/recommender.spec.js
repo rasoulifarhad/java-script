@@ -8,17 +8,17 @@ describe("test", function() {
 
     it('night only', function () {
         assert.include(
-            executeModel({atNight: true}, [{"condition": "atNight", "result": "expected"}]),
+            executeModel({atNight: true}, [{"condition": "atNight", "result": "value", "resultArgs": ["expected"]}]),
             'expected'
         );
     });
     it('seasons', function () {
-        const model = [{"condition": "seasonIncludes", "conditionArgs": ["summer"], "result": "expected"}];
+        const model = [{"condition": "seasonIncludes", "conditionArgs": ["summer"], "result": "value", "resultArgs": ["expected"]}];
         expect(executeModel({seasons: "summer"}, model)).include("expected");
     });
 
     it('country', function () {
-        const model = [{"condition": "countryIncludedIn", "conditionArgs": ["sparta", "atlantis"], "result": "expected"}];
+        const model = [{"condition": "countryIncludedIn", "conditionArgs": ["sparta", "atlantis"], "result": "value", "resultArgs": ["expected"]}];
         expect(executeModel({country: "sparta"}, model)).include("expected");
         expect(executeModel({country: "atlantis"}, model)).include("expected");
     });
@@ -31,7 +31,8 @@ describe("test", function() {
                     {"condition": "seasonIncludes", "conditionArgs": ["summer"]},
                     {"condition": "countryIncludedIn", "conditionArgs": ["sparta", "atlantis"]}
                 ],
-                "result": "expected"
+                "result": "value", 
+                "resultArgs": ["expected"]
             }
         
         ];
