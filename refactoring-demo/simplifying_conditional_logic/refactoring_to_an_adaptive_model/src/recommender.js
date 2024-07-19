@@ -10,7 +10,7 @@ const recommender =  (spec) => {
     const nonSummerPicks = [
         [150, []],
         [450, "white lightening"],
-        ["infinity", "little master"]
+        ["Infinity", "little master"]
     ];
     if(!seasonIncludes("SUMMER")) {    
         result.concat(pickMinDuration(spec, nonSummerPicks));

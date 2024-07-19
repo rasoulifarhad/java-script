@@ -9,7 +9,7 @@ function logicWithPicker(arg) {
     const range = [
         [5, "low"],
         [15, "medium"],
-        [infinity, "high"]
+        [Infinity, "high"]
     ];
     return pickFromRange(range, arg);
 }
