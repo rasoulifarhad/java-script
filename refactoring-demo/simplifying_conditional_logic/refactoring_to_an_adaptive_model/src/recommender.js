@@ -25,7 +25,7 @@ const recommender =  (spec) => {
             else result.push("little master");
         }
     }
-    return _uniq(result);
+    return _.uniq(result); 
 
 }
 
