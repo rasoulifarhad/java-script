@@ -1,12 +1,12 @@
 
 const  _ =  require('lodash');
-import getModel from './recommendationModel';
+const  getModel = require('./recommendationModel').getModel;
 
 // The function takes a spec, a simple object that contains information about 
 // how the potion will be used. The logic then interrogates the specification 
 // adding suggested cricket breeds to the returned result object.
 
-export default function(spec) {
+const recommender =  (spec) => {
 
     let result = [];
 
@@ -43,7 +43,7 @@ function countryIncludedIn(spec, anArray) {
 // That obvious simplification is nice, but the conditions are still JavaScript code, 
 // which won't fit our needs for running in a non JavaScript environment. I'll need to 
 // replace the condition code with data I can interpret.
-export function executeModel(spec, model) {
+const  executeModel = (spec, model) => {
     return model
         .filter((r) => isActive(r, spec))
         .map((r) => r.result);
@@ -61,3 +61,5 @@ function isActive(rule, spec)  {
     }
     throw new Error("unable to handle " + rule.condition);
 }
+
+module.exports = {recommender, executeModel}

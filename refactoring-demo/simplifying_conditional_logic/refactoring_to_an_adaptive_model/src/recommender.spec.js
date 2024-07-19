@@ -1,7 +1,10 @@
-import { assert } from "chai";
-import { executeModel } from "./recommender";
+const expect = require('chai').expect;
+const assert = require('chai').assert;
+const approvals = require('approvals');
+approvals.mocha();
+const executeModel =  require('./recommender.js').executeModel;
 
-describe("", function() {
+describe("test", function() {
 
     it('night only', function () {
         assert.include(

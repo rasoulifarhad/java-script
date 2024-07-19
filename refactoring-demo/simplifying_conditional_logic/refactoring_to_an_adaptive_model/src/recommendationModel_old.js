@@ -1,4 +1,5 @@
-export default [
+let model;
+model =  [
     {
         condition: (spec) => spec.atNight,
         result: "whispering death"
@@ -8,3 +9,9 @@ export default [
         result: "beefy"
     }
 ];
+
+const getModel = () => {
+    return model;
+}
+
+module.exports = {getModel}

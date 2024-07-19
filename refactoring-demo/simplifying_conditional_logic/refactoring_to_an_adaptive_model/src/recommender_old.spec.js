@@ -1,5 +1,8 @@
-import { assert } from "chai";
-import recommender from "./recommender_old";
+const expect = require('chai').expect;
+const assert = require('chai').assert;
+const approvals = require('approvals');
+approvals.mocha();
+const executeModel =  require('./recommender_old.js').executeModel;
 
 describe("", function() {
 
