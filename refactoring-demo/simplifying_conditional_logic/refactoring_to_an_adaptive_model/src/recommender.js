@@ -46,12 +46,12 @@ function countryIncludedIn(spec, anArray) {
 const  executeModel = (spec, model) => {
     return _.chain(model)
         .filter((r) => isActive(r, spec))
-        .map((r) => result(r))
+        .map((r) => result(r, spec))
         .flatten()
         .value();
 }
 
-function result(r) {
+function result(r, spec) {
     return r.result;
 }
 
