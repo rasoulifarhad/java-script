@@ -7,11 +7,15 @@ const recommender =  (spec) => {
     let result = [];
 
     result.concat(executeModel(spec, getModel()));
+    const summerPicks = [
+        [150, NULL],
+        [350, "white lightening"],
+        [570, "little master"],
+        [infinity, "wall"]
+    ];
     if(spec.minDuration >= 150) {
         if(seasonIncludes("summer")) {
-            if(spec.minDuration < 350) result.push("white lightening");
-            else if(spec.minDuration < 570) result.push("little master");
-            else result.push("wall");
+            result.push(pickFromRange(summerPicks, spec.minDuration));
         }
         else {
             if (spec.minDuration < 450) result.push("white lightening");
@@ -49,6 +53,11 @@ function isActive(rule, spec)  {
         return rule.conditionArgs.every((arg) => isActive(arg, spec));
     }
     throw new Error("unable to handle " + rule.condition);
+}
+
+function pickFromRange(range, value) {
+    const matchIndex = range.findIndex((r) => value < r[0]);
+    return range[matchIndex][1];
 }
 
 module.exports = {recommender, executeModel}
