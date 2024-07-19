@@ -8,7 +8,7 @@ const recommender =  (spec) => {
 
     result.concat(executeModel(spec, getModel()));
     const summerPicks = [
-        [150, NULL],
+        [150, null],
         [350, "white lightening"],
         [570, "little master"],
         [infinity, "wall"]
