@@ -18,13 +18,11 @@ const recommender =  (spec) => {
         [450, "white lightening"],
         [infinity, "little master"]
     ];
-    if(spec.minDuration >= 150) {
-        if(seasonIncludes("summer")) {
-            result.push(pickFromRange(summerPicks, spec.minDuration));
-        }
-        else {
-            result.push(pickFromRange(nonSummerPicks, spec.minDuration));
-        }
+    if(seasonIncludes("summer")) {
+        result.push(pickFromRange(summerPicks, spec.minDuration));
+    }
+    else {
+        result.push(pickFromRange(nonSummerPicks, spec.minDuration));
     }
     return _.uniq(result); 
 
