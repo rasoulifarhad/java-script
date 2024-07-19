@@ -2,10 +2,6 @@
 const  _ =  require('lodash');
 const  getModel = require('./recommendationModel').getModel;
 
-// The function takes a spec, a simple object that contains information about 
-// how the potion will be used. The logic then interrogates the specification 
-// adding suggested cricket breeds to the returned result object.
-
 const recommender =  (spec) => {
 
     let result = [];
