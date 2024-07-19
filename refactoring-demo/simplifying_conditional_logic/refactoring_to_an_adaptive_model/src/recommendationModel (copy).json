@@ -1,0 +1,34 @@
+[
+    {"condition": "atNight", "result": "value", "resultArgs":["whispering death"]},
+    {"condition": "seasonIncludes", "conditionArgs": ["winter"], "result": "value", "resultArgs":["beefy"]},
+    {
+      "condition": "and",
+      "conditionArgs": [
+        {"condition": "seasonIncludes",    "conditionArgs": ["summer"]},
+        {"condition": "countryIncludedIn", "conditionArgs": ["sparta", "atlantis"]}
+      ],
+      "result": "value",
+      "resultArgs": ["white lightening"]
+    },
+    {
+      "condition":"seasonIncludes",
+      "conditionArgs": ["summer"],
+      "result": "pickMinDuration",
+      "resultArgs": [[
+        [ 150,        []                  ],
+        [ 350,        "white lightening"  ],
+        [ 570,        "little master"     ],
+        [ "Infinity", "wall"              ]
+      ]]
+    },
+    {
+      "condition":"not",
+      "conditionArgs": [{"condition":"seasonIncludes", "conditionArgs": ["summer"]}],
+      "result": "pickMinDuration",
+      "resultArgs": [[
+        [150,        []                  ],
+        [450,        "white lightening"  ],
+        ["Infinity", "little master"     ]
+      ]]
+    }
+  ]
