@@ -73,6 +73,9 @@ function isActive(rule, spec)  {
     if(rule.condition === 'and') {
         return rule.conditionArgs.every((arg) => isActive(arg, spec));
     }
+    if(rule.condition === 'pickMinDuration') {
+        return true;
+    }
     throw new Error("unable to handle " + rule.condition);
 }
 
