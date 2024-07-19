@@ -38,4 +38,38 @@ describe("test", function() {
         expect(executeModel({country: "sparta", seasons: "summer"}, model)).include("expected");
         expect(executeModel({country: "atlantis", seasons: "summer"}, model)).include("expected");
     });
+
+
+});
+
+
+describe('min duration rule', function () {
+    const range = [
+        [5, []],
+        [10, 'low'],
+        [infinity, 'high' ],
+    ];
+    const model = [
+        {
+            condition: 'pickMinDuration', 
+            conditionArgs: [range], 
+            resultFunction: 'pickMinDuration',
+            resultArgs: [range]
+        }];
+    const testValues = [
+        [4.9, []],
+        [5, ['low']],
+        [9.9, ['low']],
+        [10, ['high']]
+    ];
+
+    testValues.forEach(function (v) {
+        it(`pick for duration: ${v[0]}`, function () {
+                expect(executeModel({minDuration: v[0]}, model)).deep.equal(v[1]);
+            }
+        )
+    });
+    it('empty spec', function () {
+        expect(executeModel({}, model)).be.empty;
+    });
 });
