@@ -19,4 +19,19 @@ describe("test", function() {
         expect(executeModel({country: "atlantis"}, model)).include("expected");
     });
 
+    it('conjunction', function () {
+        const model = [
+            {
+                "condition": "and", 
+                "conditionArgs": [
+                    {"condition": "seasonIncludes", "conditionArgs": ["summer"]},
+                    {"condition": "countryIncludedIn", "conditionArgs": ["sparta", "atlantis"]}
+                ],
+                "result": "expected"
+            }
+        
+        ];
+        expect(executeModel({country: "sparta", seasons: "summer"}, model)).include("expected");
+        expect(executeModel({country: "atlantis", seasons: "summer"}, model)).include("expected");
+    });
 });
