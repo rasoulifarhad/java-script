@@ -11,9 +11,6 @@ const recommender =  (spec) => {
     let result = [];
 
     result.concat(executeModel(spec, getModel()));
-    if(seasonIncludes("summer") && countryIncludedIn(spec, ["sparta", "atlantis"])) {
-        result.push("white lightening");
-    }
     if(spec.minDuration >= 150) {
         if(seasonIncludes("summer")) {
             if(spec.minDuration < 350) result.push("white lightening");
