@@ -21,7 +21,7 @@ const recommender =  (spec) => {
     if(seasonIncludes("summer")) {
         result.concat(pickMinDuration(spec, summerPicks));
     }
-    else {
+    if(!seasonIncludes("SUMMER")) {    
         result.concat(pickMinDuration(spec, nonSummerPicks));
     }
     return _.uniq(result); 
