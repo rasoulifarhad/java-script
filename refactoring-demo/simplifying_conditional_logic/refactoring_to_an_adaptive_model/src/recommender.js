@@ -46,9 +46,13 @@ function countryIncludedIn(spec, anArray) {
 const  executeModel = (spec, model) => {
     return _.chain(model)
         .filter((r) => isActive(r, spec))
-        .map((r) => r.result)
+        .map((r) => result(r))
         .flatten()
         .value();
+}
+
+function result(r) {
+    return r.result;
 }
 
 function isActive(rule, spec)  {
