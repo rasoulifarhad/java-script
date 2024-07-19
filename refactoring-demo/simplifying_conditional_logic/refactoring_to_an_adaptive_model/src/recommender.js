@@ -56,6 +56,9 @@ function isActive(rule, spec)  {
     if(rule.condition === 'countryIncludedIn') {
         return rule.conditionArgs.includes(spec.country);
     }
+    if(rule.condition === 'and') {
+        return rule.conditionArgs.every((arg) => isActive(arg, spec));
+    }
     throw new Error("unable to handle " + rule.condition);
 }
 
