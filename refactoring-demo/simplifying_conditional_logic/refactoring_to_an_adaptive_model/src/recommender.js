@@ -3,45 +3,16 @@ const  _ =  require('lodash');
 const  getModel = require('./recommendationModel').getModel;
 
 const recommender =  (spec) => {
-
-    let result = [];
-
-    result.concat(executeModel(spec, getModel()));
-    return _.uniq(result); 
-
+    return executeModel(spec, getModel());
 }
 
-function pickMinDuration(spec, range) {
-    if(spec.minDuration) {
-        return pickFromRange(range, spec.minDuration);
-    } else {
-        return [];
-    }
-
-}
-function seasonIncludes(spec, arg) {
-    return spec.seasons && spec.seasons.includes(arg);
-}
-
-function countryIncludedIn(spec, anArray) {
-    return anArray.includes(spec.country);
-}
 const  executeModel = (spec, model) => {
     return _.chain(model)
         .filter((r) => isActive(r, spec))
         .map((r) => result(r, spec))
         .flatten()
+        .uniq()
         .value();
-}
-
-function result(r, spec) {
-    if(r.result === "value") {
-        return r.resultArgs[0]
-    } else if(r.resultFunction === 'pickMinDuration') {
-        return pickMinDuration(spec, r.resultArgs[0]);
-    }
-    throw new Error("unknown result function: " + r.result);
-
 }
 
 function isActive(rule, spec)  {
@@ -64,6 +35,32 @@ function isActive(rule, spec)  {
         return !isActive(rule.conditionArgs[0], spec);
     }
     throw new Error("unable to handle " + rule.condition);
+}
+
+function result(r, spec) {
+    if(r.result === "value") {
+        return r.resultArgs[0]
+    } else if(r.resultFunction === 'pickMinDuration') {
+        return pickMinDuration(spec, r.resultArgs[0]);
+    }
+    throw new Error("unknown result function: " + r.result);
+}
+
+function seasonIncludes(spec, arg) {
+    return spec.seasons && spec.seasons.includes(arg);
+}
+
+function countryIncludedIn(spec, anArray) {
+    return anArray.includes(spec.country);
+}
+
+function pickMinDuration(spec, range) {
+    if(spec.minDuration) {
+        return pickFromRange(range, spec.minDuration);
+    } else {
+        return [];
+    }
+
 }
 
 function pickFromRange(range, value) {
