@@ -13,12 +13,22 @@
     {
         "condition": "seasonIncludes",
         "conditionArgs": ["summer"],
-        "resultFunction": "pickMinDuration",
+        "result": "pickMinDuration",
         "resultArgs": [
             [150,        []                ],
             [350,        "white lightening"],
             [570,        "little master"   ],
             ["Infinity", "wall"            ]
        ]
+    },
+    {
+        "condition": "not",
+        "conditionArgs": [{"condition": "seasonIncludes", "conditionArgs": ["summer"]}],
+        "result": "pickMinDuration",
+        "resultArgs": [
+            [150,        []                  ],
+            [450,        "white lightening"  ],
+            ["Infinity", "little master"     ]
+        ]
     }
 ]

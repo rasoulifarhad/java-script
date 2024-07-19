@@ -7,14 +7,6 @@ const recommender =  (spec) => {
     let result = [];
 
     result.concat(executeModel(spec, getModel()));
-    const nonSummerPicks = [
-        [150, []],
-        [450, "white lightening"],
-        ["Infinity", "little master"]
-    ];
-    if(!seasonIncludes("SUMMER")) {    
-        result.concat(pickMinDuration(spec, nonSummerPicks));
-    }
     return _.uniq(result); 
 
 }
@@ -67,6 +59,9 @@ function isActive(rule, spec)  {
     }
     if(rule.condition === 'pickMinDuration') {
         return true;
+    }
+    if(rule.condition === 'not') {
+        return !isActive(rule.conditionArgs[0], spec);
     }
     throw new Error("unable to handle " + rule.condition);
 }
