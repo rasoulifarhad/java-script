@@ -19,10 +19,12 @@ const recommender =  (spec) => {
         [infinity, "little master"]
     ];
     if(seasonIncludes("summer")) {
-        result.push(pickMinDuration(spec, summerPicks));
+        if(pickMinDuration(spec, summerPicks))
+            result.push(pickMinDuration(spec, summerPicks));
     }
     else {
-        result.push(pickMinDuration(spec, nonSummerPicks));
+        if(pickMinDuration(spec, nonSummerPicks)) 
+            result.push(pickMinDuration(spec, nonSummerPicks));
     }
     return _.uniq(result); 
 
