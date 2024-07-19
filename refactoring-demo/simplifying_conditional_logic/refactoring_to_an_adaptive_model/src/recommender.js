@@ -7,20 +7,11 @@ const recommender =  (spec) => {
     let result = [];
 
     result.concat(executeModel(spec, getModel()));
-    const summerPicks = [
-        [150, []],
-        [350, "white lightening"],
-        [570, "little master"],
-        [infinity, "wall"]
-    ];
     const nonSummerPicks = [
         [150, []],
         [450, "white lightening"],
         [infinity, "little master"]
     ];
-    if(seasonIncludes("summer")) {
-        result.concat(pickMinDuration(spec, summerPicks));
-    }
     if(!seasonIncludes("SUMMER")) {    
         result.concat(pickMinDuration(spec, nonSummerPicks));
     }

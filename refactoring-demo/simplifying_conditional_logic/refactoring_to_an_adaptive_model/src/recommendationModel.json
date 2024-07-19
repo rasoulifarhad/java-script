@@ -8,5 +8,16 @@
             {"condition": "countryIncludedIn", "conditionArgs": ["sparta", "atlantis"]}
         ],
         "result": "white lightening"
+    },
+    {
+        "condition": "seasonIncludes",
+        "conditionArgs": ["summer"],
+        "resultFunction": "pickMinDuration",
+        "resultArgs": [
+            [150,        []                ],
+            [350,        "white lightening"],
+            [570,        "little master"   ],
+            ["infinity", "wall"            ]
+       ]
     }
 ]
