@@ -12,7 +12,7 @@ class ChargeCalculator {
 }
 
 function charge(customer, usage, provider) {
-    return new ChargeCalculator().charge();
+    return new ChargeCalculator().charge(customer, usage, provider);
 }
 
 
