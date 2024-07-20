@@ -14,5 +14,10 @@ class ChargeCalculator {
     }
 }
 
+function charge(customer, usage, provider) {
+    return new ChargeCalculator().charge();
+}
 
-monthCharge = new ChargeCalculator(customer, usage, provider).charge();
+
+monthCharge = charge(customer, usage, provider);
+
