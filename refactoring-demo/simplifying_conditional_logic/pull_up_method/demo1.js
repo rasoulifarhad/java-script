@@ -1,3 +1,6 @@
+class Party {
+
+}
 class Employee extends Party {
 
     get annualCost() {
