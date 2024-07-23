@@ -20,6 +20,12 @@ class Employee extends Party {
     get assignCar() {
         return true;
     }
+    
+    finishConstruction() {
+        if(this.isPrivileged) {
+            this.assignCar();
+        }
+    }
 }
 
 class Department extends Party {
@@ -42,9 +48,4 @@ class Manager extends Employee {
         return this._grade > 4;
     }
 
-    finishConstruction() {
-        if(this.isPrivileged) {
-            this.assignCar();
-        }
-    }
 }
