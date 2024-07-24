@@ -39,6 +39,8 @@ function createEmployee(name, type) {
             return new Salesman(name, type);
         case "manager": 
             return new Manager(name, type);
+        default: 
+            throw new Error(`Employee cannot be of type ${type}`);
     }
-        throw new Error(`Employee cannot be of type ${type}`);
+        
 }
