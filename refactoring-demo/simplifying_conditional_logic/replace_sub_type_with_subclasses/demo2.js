@@ -14,6 +14,10 @@ class Employee {
         }
     }
 
+    get type() {
+        return this._type;
+    }
+    
     toString() {
         return `${this._name} (${this._type})`;
     }
