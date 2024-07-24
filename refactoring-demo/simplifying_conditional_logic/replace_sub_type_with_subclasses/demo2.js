@@ -40,5 +40,5 @@ function createEmployee(name, type) {
         case "manager": 
             return new Manager(name, type);
     }
-        return new Employee(name, type);
+        throw new Error(`Employee cannot be of type ${type}`);
 }
