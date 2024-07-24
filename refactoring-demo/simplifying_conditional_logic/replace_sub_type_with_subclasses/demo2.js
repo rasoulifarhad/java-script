@@ -31,6 +31,6 @@ class Engineer extends Employee {
     }
 }
 
-function createEmploye(name, type) {
+function createEmployee(name, type) {
         return new Employee(name, type);
 }
