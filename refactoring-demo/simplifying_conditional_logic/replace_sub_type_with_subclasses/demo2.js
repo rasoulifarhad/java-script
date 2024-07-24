@@ -7,6 +7,7 @@ class Employee {
         this._type = type;
     }
 
+
     validateType(arg) {
 
         if (!["engineer", "manager", "salesman"].includes(arg)) {
@@ -28,4 +29,8 @@ class Engineer extends Employee {
     get type() {
         return "engineer";
     }
+}
+
+function createEmploye(name, type) {
+        return new Employee(name, type);
 }
