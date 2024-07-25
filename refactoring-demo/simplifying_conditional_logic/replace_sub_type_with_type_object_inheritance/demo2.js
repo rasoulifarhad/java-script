@@ -43,7 +43,7 @@ class Employee {
     }
 
     toString() {
-        return `${this._name} (${this.capitalizedType})`;
+        return `${this._name} (${this.type.capitalizedName})`;
     }
 }
 
@@ -51,6 +51,10 @@ class EmployeeType {
 
     constructor(aString) {
         this._value = aString;
+    }
+
+    get capitalizedName() {
+        return this.toString.charAt(0).toUpperCase() + this.toString.substr(1).toLowerCase();
     }
 
     toString() {
