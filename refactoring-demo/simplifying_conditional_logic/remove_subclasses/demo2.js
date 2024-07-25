@@ -15,10 +15,6 @@ class Person {
         get name() {
         return this._name;
     }
-
-    get genderCode() {
-        return "X";
-    }
 }
 
 class Male extends Person {
@@ -35,18 +31,6 @@ class Female extends Person {
     }
 }
 
-function createPerson(name) {
-    return new Person(name);
-}
-
-function createMale(name) {
-    return new Male(name);
-}
-
-function createFemale(name) {
-    return new Female(name);
-}
-
 function loadFromInput(data) {
     return data
             .map(aRecord => createPerson(aRecord));
@@ -59,7 +43,7 @@ function createPerson(aRecord) {
         case "F":
             return new Person(aRecord.name, "F");
         default:
-            return new Person(aRecord.name);
+            return new Person(aRecord.name, "X");
     }
 }
 
