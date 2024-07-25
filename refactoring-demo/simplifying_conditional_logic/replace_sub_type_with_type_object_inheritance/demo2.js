@@ -26,7 +26,7 @@ class Employee {
     }
 
     get capitalizedType() {
-        return this._type.charAt(0).toUpperCase() + this._type.substr(1).toLowerCase();
+        return this._type.toString.charAt(0).toUpperCase() + this._type.toString.substr(1).toLowerCase();
     }
 
     toString() {
