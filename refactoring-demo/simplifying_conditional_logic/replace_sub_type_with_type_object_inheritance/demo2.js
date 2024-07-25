@@ -22,7 +22,20 @@ class Employee {
     }
 
     set type(arg) {
-        this._type = arg;
+        this._type = Employee.createEmployeeType(arg);
+    }
+
+    static createEmployeeType(aString) {
+        switch (aString) {
+            case "engineer":
+                return new Engineer();
+            case "manager": 
+                return new Manager();
+            case "salesman":
+                return new Salesman();
+            default:
+                throw new Error(`Employee cannot be of type ${aString}`);
+        }
     }
 
     get capitalizedType() {
@@ -42,5 +55,26 @@ class EmployeeType {
 
     toString() {
         return this._value;
+    }
+}
+
+class Engineer extends EmployeeType {
+
+    toString() {
+        return "engineer";
+    }
+}
+
+class Manager extends EmployeeType {
+
+    toString() {
+        return "manager";
+    }
+}
+
+class Salesman extends EmployeeType {
+
+    toString() {
+        return "salesman";
     }
 }
