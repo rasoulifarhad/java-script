@@ -31,7 +31,7 @@ class Employee {
                 return new Engineer();
             case "manager": 
                 return new Manager();
-            case "salesman":
+            case "salesman": 
                 return new Salesman();
             default:
                 throw new Error(`Employee cannot be of type ${aString}`);
@@ -39,7 +39,7 @@ class Employee {
     }
 
     get capitalizedType() {
-        return this._type.toString.charAt(0).toUpperCase() + this._type.toString.substr(1).toLowerCase();
+        return this._type.capitalizedName;
     }
 
     toString() {
