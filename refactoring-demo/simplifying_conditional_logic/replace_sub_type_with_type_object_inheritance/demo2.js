@@ -29,6 +29,15 @@ class Employee {
     toString() {
         return `${this._name} (${this.capitalizedType})`;
     }
+}
 
+class EmployeeType {
 
+    constructor(aString) {
+        this._value = aString;
+    }
+
+    toString() {
+        return this._value;
+    }
 }
