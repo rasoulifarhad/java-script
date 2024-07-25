@@ -56,4 +56,8 @@ function createPerson(aRecord) {
 }
 
 let people = [];
-const numberOfMales = people.filter(p => p instanceof Male).length;
+const numberOfMales = people.filter(p => isMale(p)).length;
+
+function isMale(aPerson) {
+    return aPerson instanceof Male;
+}
