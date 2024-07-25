@@ -10,7 +10,7 @@ class Person {
     }
     
     get isMale() {
-        return "M" === this._genderCode;
+        return "M" === this._genderCode;
     }
         get name() {
         return this._name;
@@ -57,7 +57,7 @@ function createPerson(aRecord) {
         case "M":
             return new Person(aRecord.name, "M");
         case "F":
-            return new Female(aRecord.name);
+            return new Person(aRecord.name, "F");
         default:
             return new Person(aRecord.name);
     }
