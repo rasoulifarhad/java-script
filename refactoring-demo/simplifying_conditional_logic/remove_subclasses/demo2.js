@@ -26,3 +26,6 @@ class Female extends Person {
         return "F";
     }
 }
+
+let people = [];
+const numberOfMales = people.filter(p => p instanceof Male).length;
