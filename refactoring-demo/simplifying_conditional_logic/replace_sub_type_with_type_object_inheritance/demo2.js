@@ -14,6 +14,9 @@ class Employee {
         }
     }
 
+    get typeString() {
+        return this._type.toString();
+    }
     get type() {
         return this._type;
     }
