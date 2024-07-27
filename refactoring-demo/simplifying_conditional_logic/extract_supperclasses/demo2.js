@@ -3,6 +3,10 @@ class Party {
     constructor(name) {
         this._name = name;
     }
+  
+    get name() {
+        return this._name;
+    }
 }
 class Employee extends Party {
 
@@ -12,10 +16,6 @@ class Employee extends Party {
         this._monthlyCost = monthlyCost;
     }
     
-    get name() {
-        return this._name;
-    }
-
     get id() {
         return this._id;
     }
@@ -34,10 +34,6 @@ class Department extends Party {
     constructor(name, staff) {
         super(name);
         this._staff = staff;
-    }
-
-    get name() {
-        return this._name;
     }
 
     get staff() {
