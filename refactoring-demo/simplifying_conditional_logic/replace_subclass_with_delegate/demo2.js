@@ -58,7 +58,7 @@ class PremiumBooking extends Booking {
 // booking client
 let show = {};
 let date = new Date();
-aBooking = new Booking(show, date);
+aBooking = createBooking(show, date);
 
 // premium client
-aBooking = new PremiumBooking(show, date, extras);
+aBooking = createPremiumBooking(show, date, extras);
