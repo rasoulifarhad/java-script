@@ -20,13 +20,21 @@ class Booking {
     }
 
     get hasTalkback() {
-        return (this._premiumDelegate) ? this._premiumDelegate.hasTalkback
+        return (this._premiumDelegate) 
+            ? this._premiumDelegate.hasTalkback
             : this._show.hasOwnProperty('talkback') && !this.isPeakDay;
     }
 
     get basePrice() {
-        return (this._premiumDelegate) ? this._premiumDelegate.basePrice 
+        return (this._premiumDelegate) 
+            ? this._premiumDelegate.basePrice 
             : this._privateBasePrice;
+    }
+    
+    get hasDinner() {
+        return (this._premiumDelegate)
+            ? this._premiumDelegate.hasDinner
+            : undefined;
     }
 
     get _privateBasePrice() {
@@ -47,7 +55,9 @@ class Booking {
         if(this.isPeakDay) {
             result += Math.round(result * 1.5);
         }
-        return  (this._premiumDelegate) ? this._premiumDelegate.extendBasePrice : result;
+        return  (this._premiumDelegate) 
+            ? this._premiumDelegate.extendBasePrice 
+            : result;
     }
 }
 
