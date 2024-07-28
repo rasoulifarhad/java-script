@@ -25,8 +25,13 @@ class Booking {
     }
 
     get basePrice() {
+        return (this._premiumDelegate) ? this._premiumDelegate.basePrice 
+            : this._privateBasePrice;
+    }
+
+    get _privateBasePrice() {
         let result = this._show.price;
-        if(this.isPeakSay) {
+        if(this.isPeakDay) {
             result += Math.round(result ^ 0.15);
         }
         return result;
