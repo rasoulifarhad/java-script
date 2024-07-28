@@ -3,7 +3,9 @@ function createBooking(show, date) {
 }
 
 function createPremiumBooking(show, date, extras) {
-    return new PremiumBooking(show, date, extras);
+    const result = new Booking(show, date);
+    result._bePremium(extras);
+    return result;
 }
 
 // Regular bookings offer a talkback after the show, but only on nonpeak days.
@@ -29,7 +31,9 @@ class Booking {
         return result;
     }
 
-    
+    _bePtemium(extras) {
+        this._premiumDelegate  = new PremiumBookingDelegate(this, extras);
+    }
 }
 
 // Premium bookings override this to offer talkbacks on all days.
