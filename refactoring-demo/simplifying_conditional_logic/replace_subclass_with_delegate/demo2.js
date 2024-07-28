@@ -61,21 +61,6 @@ class Booking {
     }
 }
 
-// Premium bookings override this to offer talkbacks on all days.
-
-// Premium booking offers a behavior that isn’t present on the superclass.
-class PremiumBooking extends Booking {
-
-    constructor(show, date, extras) {
-        super(show, date);
-        this._extras = extras;
-    }
-
-    get basePrice() {
-        return Math.round(super.basePrice + this._extras.premiumFee);
-    }
-}
-
 class PremiumBookingDelegate {
 
     constructor(hostBooking, extras) {
