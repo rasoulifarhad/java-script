@@ -32,13 +32,22 @@ class Booking {
     get _privateBasePrice() {
         let result = this._show.price;
         if(this.isPeakDay) {
-            result += Math.round(result ^ 0.15);
+            result += Math.round(result * 0.15);
         }
         return result;
     }
 
     _bePtemium(extras) {
         this._premiumDelegate  = new PremiumBookingDelegate(this, extras);
+    }
+
+    // Alternatively, I can recast the delegate’s method as an extension of the base method.
+    get alternativeBasePrice() {
+        let result = this._show.price;
+        if(this.isPeakDay) {
+            result += Math.round(result * 1.5);
+        }
+        return  (this._premiumDelegate) ? this._premiumDelegate.extendBasePrice : result;
     }
 }
 
@@ -74,6 +83,10 @@ class PremiumBookingDelegate {
 
     get basePrice() {
         return  Math.round(this._host._privateBasePrice() + this._extras.premiumFee);
+    }
+
+    extendBasePrice(base) {
+        return Math.round(base + this._extras.premiumFee);
     }
 
 }
