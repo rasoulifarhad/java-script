@@ -46,3 +46,12 @@ class PremiumBooking extends Booking {
         return this._extras.hasOwnProperty('dinner') && !this.isPeakDay;
     }
 }
+
+
+// booking client
+let show = {};
+let date = new Date();
+aBooking = new Booking(show, date);
+
+// premium client
+aBooking = new PremiumBooking(show, date, extras);
