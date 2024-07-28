@@ -1,3 +1,11 @@
+function createBooking(show, date) {
+    return new Booking(show, date);
+}
+
+function createPremiumBooking(show, date, extras) {
+    return new PremiumBooking(show, date, extras);
+}
+
 // Regular bookings offer a talkback after the show, but only on nonpeak days.
 
 // Determining the price is a similar override, with a twist that the premium 
