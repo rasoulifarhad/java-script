@@ -47,7 +47,7 @@ class PremiumBooking extends Booking {
     }
 
     get hasTalkback() {
-        this._show.hasOwnProperty('talkback');
+        return this._premiumDelegate.hasTalkback;
     }
 
     get basePrice() {
@@ -65,6 +65,11 @@ class PremiumBookingDelegate {
         this._host = hostBooking;
         this._extras = extras;
     }
+
+    get hasTalkback() {
+        return this._host._show.hasOwnProperty('talkback');
+    }
+
 }
 
 // booking client
