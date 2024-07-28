@@ -55,6 +55,14 @@ class PremiumBooking extends Booking {
     }
 }
 
+class PremiumBookingDelegate {
+
+    constructor(hostBooking, extras) {
+        this._host = hostBooking;
+        this._extras = extras;
+    }
+}
+
 // booking client
 let show = {};
 let date = new Date();
