@@ -18,7 +18,7 @@ class Bird {
     }
 
     get name() {
-        return this._namel;
+        return this._name;
     }
 
     get plumage() {
