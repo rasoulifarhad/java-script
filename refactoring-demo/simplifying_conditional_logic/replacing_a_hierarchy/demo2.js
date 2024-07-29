@@ -37,6 +37,10 @@ class EuropeanShallow extends Bird{
     }
 }
 
+class EuropeanShallowDelegate {
+
+}
+
 class AfricanShallow extends Bird {
     constructor(data) {
         super(data);
