@@ -47,17 +47,6 @@ class EuropeanShallowDelegate {
     }
 }
 
-class AfricanShallow extends Bird {
-    constructor(data) {
-        super(data);
-        this._numberOfCoconuts = data.numberOfCoconuts;
-    }
-
-    get airSpeedVelocity() {
-        return this._speciesDelegate.airSpeedVelocity;
-    }
-}
-
 class AfricanShallowDelegate {
 
     constructor(data) {
