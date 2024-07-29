@@ -53,9 +53,27 @@ class AfricanShallowDelegate {
     }
 }
 
-class NorwegianBlueParrotDelegate {
+class NorwegianBlueParrot extends Bird {
 
     constructor(data) {
+        super(data);
+        this._voltage = data.voltage;
+        this._isNailed = data.isNailed;
+    }
+
+    get plumage() {
+        return this._speciesDelegate.plumage;
+    }
+
+    get airSpeedVelocity() {
+        return this._speciesDelegate.airSpeedVelocity;
+    }
+}
+
+class NorwegianBlueParrotDelegate {
+
+    constructor(data, bird) {
+        this._bird = bird;
         this._voltage = data.voltage;
         this._isNailed = data.isNailed;
     }
@@ -64,7 +82,7 @@ class NorwegianBlueParrotDelegate {
         if(this._voltage > 100) {
             return "scorched";
         } else {
-            return this._plumage  ||  "beautiful";
+            return this._bird._plumage  ||  "beautiful";
         }
     }
 
