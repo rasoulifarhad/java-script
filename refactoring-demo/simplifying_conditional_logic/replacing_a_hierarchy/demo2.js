@@ -17,7 +17,7 @@ class Bird {
             case 'AfricanShallow':
                 return new AfricanShallowDelegate(data);
             case 'NorwegianBlueParrot':
-                return new NorwegianBlueParrotDelegate(data);
+                return new NorwegianBlueParrotDelegate(data, this);
             default:
                 return null;
         }
