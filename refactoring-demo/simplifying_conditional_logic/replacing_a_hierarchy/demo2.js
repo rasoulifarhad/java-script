@@ -28,7 +28,7 @@ class Bird {
     }
 
     get plumage() {
-        if(this._speciesDelegate instanceof NorwegianBlueParrotDelegate) {
+        if(this._speciesDelegate) {
             return this._speciesDelegate.plumage
         } else {
             return this._plumage || "average";
@@ -44,6 +44,10 @@ class EuropeanShallowDelegate {
     get airSpeedVelocity() {
         return 35;
     }
+
+    get plumage() {
+        return this._plumage || "average";
+    }
 }
 
 class AfricanShallowDelegate {
@@ -55,6 +59,11 @@ class AfricanShallowDelegate {
     get airSpeedVelocity() {
         return 40 - 2 * this._numberOfCoconuts;
     }
+
+    get plumage() {
+        return this._plumage || "average";
+    }
+
 }
 
 class NorwegianBlueParrot extends Bird {
