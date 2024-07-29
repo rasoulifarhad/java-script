@@ -28,7 +28,7 @@ class Bird {
     }
 
     get plumage() {
-        if(this._speciesDelegate) {
+        if(this._speciesDelegate instanceof NorwegianBlueParrotDelegate) {
             return this._speciesDelegate.plumage
         } else {
             return this._plumage || "average";
