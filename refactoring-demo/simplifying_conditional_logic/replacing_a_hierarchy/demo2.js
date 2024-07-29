@@ -28,7 +28,11 @@ class Bird {
     }
 
     get plumage() {
-        return this._plumage || "average";
+        if(this._speciesDelegate) {
+            return this._speciesDelegate.plumage
+        } else {
+            return this._plumage || "average";
+        }
     }
 
     get airSpeedVelocity() {
