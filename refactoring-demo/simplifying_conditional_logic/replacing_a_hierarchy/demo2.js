@@ -62,11 +62,7 @@ class NorwegianBlueParrot extends Bird {
     }
 
     get plumage() {
-        if(this._voltage > 100) {
-            return "scorched";
-        } else {
-            return this._plumage  ||  "beautiful";
-        }
+        return this._speciesDelegate.plumage;
     }
 
     get airSpeedVelocity() {
@@ -79,6 +75,14 @@ class NorwegianBlueParrotDelegate {
     constructor(data) {
         this._voltage = data.voltage;
         this._isNailed = data.isNailed;
+    }
+
+    get plumage() {
+        if(this._voltage > 100) {
+            return "scorched";
+        } else {
+            return this._plumage  ||  "beautiful";
+        }
     }
 
     get airSpeedVelocity() {
