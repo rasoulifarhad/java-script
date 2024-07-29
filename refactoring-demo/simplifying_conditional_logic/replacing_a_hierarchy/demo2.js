@@ -28,15 +28,11 @@ class Bird {
     }
 
     get plumage() {
-        if(this._speciesDelegate) {
-            return this._speciesDelegate.plumage
-        } else {
-            return this._plumage || "average";
-        }
+        return this._speciesDelegate.plumage;    
     }
 
     get airSpeedVelocity() {
-        return (this._speciesDelegate ) ? this._speciesDelegate.airSpeedVelocity : null;
+        return  this._speciesDelegate.airSpeedVelocity;
     }
 }
 
