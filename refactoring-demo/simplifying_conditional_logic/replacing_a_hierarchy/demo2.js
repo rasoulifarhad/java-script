@@ -1,7 +1,5 @@
 function createBird(data) {
     switch (data.type) {
-        case 'AfricanSwallow':
-            return new AfricanShallow(data);
         case 'NorwegianBlueParrot':
             return new NorwegianBlueParrot(data);
         default:
