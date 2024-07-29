@@ -9,6 +9,18 @@ class Bird {
         this._speciesDelegate = this.selectSpeciesDelegate(data);
     }
 
+    get name() {
+        return this._name;
+    }
+
+    get plumage() {
+        return this._speciesDelegate.plumage;    
+    }
+
+    get airSpeedVelocity() {
+        return  this._speciesDelegate.airSpeedVelocity;
+    }
+
     selectSpeciesDelegate(data) {
 
         switch (data.type) {
@@ -21,18 +33,6 @@ class Bird {
             default:
                 return new SpeciesDelegate(data, this);
         }
-    }
-
-    get name() {
-        return this._name;
-    }
-
-    get plumage() {
-        return this._speciesDelegate.plumage;    
-    }
-
-    get airSpeedVelocity() {
-        return  this._speciesDelegate.airSpeedVelocity;
     }
 }
 
@@ -53,15 +53,9 @@ class SpeciesDelegate {
 }
 
 class EuropeanShallowDelegate extends SpeciesDelegate {
-    constructor(data, bird) {
-        super(data, bird)
-    }
+
     get airSpeedVelocity() {
         return 35;
-    }
-
-    get plumage() {
-        return this._bird._plumage || "average";
     }
 }
 
@@ -75,11 +69,6 @@ class AfricanShallowDelegate extends SpeciesDelegate {
     get airSpeedVelocity() {
         return 40 - 2 * this._numberOfCoconuts;
     }
-
-    get plumage() {
-        return this._bird._plumage || "average";
-    }
-
 }
 
 class NorwegianBlueParrotDelegate extends  SpeciesDelegate {
