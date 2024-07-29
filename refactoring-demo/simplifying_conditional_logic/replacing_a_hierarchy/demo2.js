@@ -43,13 +43,12 @@ class Bird {
 
 class EuropeanShallow extends Bird{
 
+ }
+
+class EuropeanShallowDelegate {
     get airSpeedVelocity() {
         return 35;
     }
-}
-
-class EuropeanShallowDelegate {
-
 }
 
 class AfricanShallow extends Bird {
