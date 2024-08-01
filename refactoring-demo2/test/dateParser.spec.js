@@ -21,7 +21,9 @@ describe("DateParser", function() {
     });
 
     it("throws exception if year string can not be parsed", function() {
+        const dateParser = new DateParser("111");
 
+        expect(() => dateParser.parse()).to.throw("year string is less than 4 characters");
     });
 
     it("throws exception if year is not an integer", function() {
