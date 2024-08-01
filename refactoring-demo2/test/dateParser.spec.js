@@ -12,6 +12,11 @@ describe("DateParser", function() {
     });
 
     it("parse valid date time", function() {
+        const expected = new Date(Date.UTC(2018, 9 - 1, 24, 23, 59, 0));
+
+        const actual = new DateParser("2018-09-24T23:59Z").parse();
+        
+        expect(actual).to.deep.equal(expected);
 
     });
 
