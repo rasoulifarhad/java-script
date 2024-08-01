@@ -4,7 +4,11 @@ import DateParser from "../app/date_parser/dateParser";
 describe("DateParser", function() {
 
     it("parse valid date", function() {
+        const expected = new Date(Date.UTC(2018, 9 - 1, 24, 0, 0));
 
+        const actual = new DateParser("2018-09-24Z").parse();
+        
+        expect(actual).to.deep.equal(expected);
     });
 
     it("parse valid date time", function() {
