@@ -27,6 +27,9 @@ describe("DateParser", function() {
     });
 
     it("throws exception if year is not an integer", function() {
+        const dateParser = new DateParser("abcd");
+
+        expect(() => dateParser.parse()).to.throw("year is not an integer");
 
     });
 
