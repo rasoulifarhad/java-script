@@ -17,7 +17,6 @@ describe("DateParser", function() {
         const actual = new DateParser("2018-09-24T23:59Z").parse();
         
         expect(actual).to.deep.equal(expected);
-
     });
 
     it("throws exception if year string can not be parsed", function() {
@@ -30,11 +29,12 @@ describe("DateParser", function() {
         const dateParser = new DateParser("abcd");
 
         expect(() => dateParser.parse()).to.throw("year is not an integer");
-
     });
 
     it("throws exception if year is less than 2000", function() {
+        const dateParser = new DateParser("1800-09-24Z");
 
+        expect(() => dateParser.parse()).to.throw("year can not be less than 2000 or more than 2024");
     });
 
 });
