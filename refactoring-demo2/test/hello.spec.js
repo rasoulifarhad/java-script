@@ -7,4 +7,12 @@ describe("Hello", function() {
         const actual = hello();
         expect(actual).to.equal("Hello, World")
     });
+
+    it("greets you", function() {
+        const myName = "Farhad";
+        
+        const actual = hello(myName);
+
+        expect(actual).to.equal(`Hello, ${myName}`);
+    });
 });
