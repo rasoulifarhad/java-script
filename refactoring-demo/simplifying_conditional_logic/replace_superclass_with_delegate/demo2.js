@@ -28,7 +28,7 @@ class CatalogItem {
 }
 
 class Scroll {
-    constructor(id, title, tags, dateLastCleaned, catalogId, catalog) {
+    constructor(id, dateLastCleaned, catalogId, catalog) {
         this._id = id;
         this._catalogItem = catalog.get(catalogId);
         this._lastCleaned = dateLastCleaned;
@@ -60,8 +60,6 @@ function load() {
     const scrolls =aDocument
         .map(record => new Scroll(
             record.id, 
-            record.catalogData.title, 
-            record.catalogData.tags,
             LocalDate.parse(record.lastCleaned),
             record.catalogData.id,
             catalog));
