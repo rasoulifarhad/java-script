@@ -21,4 +21,13 @@ export default class LineItem {
     lineAmount() {
         return this._p * this._qty;
     }
+
+    saleTax() {
+        return this.lineAmount() * 0.10;
+    }
+
+    totalLineAmount() {
+        return this.lineAmount() + this.saleTax();
+    }
+
 }
