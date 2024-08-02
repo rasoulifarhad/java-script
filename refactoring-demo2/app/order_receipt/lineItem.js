@@ -6,6 +6,18 @@ export default class LineItem {
         this._quantity = quantity;
     }
 
+    quantity() {
+        return this._quantity;
+    }
+
+    price() {
+        return this._price;
+    }
+
+    description() {
+        return this._description;
+    }
+
     lineAmount() {
         return this._price * this._quantity;
     }
