@@ -5,7 +5,7 @@ export default class OrderReceipt {
     }
 
     printReceipt() {
-        let output = this.header();
+        let receipt = this.header();
 
         // lineItems
 
@@ -13,14 +13,14 @@ export default class OrderReceipt {
         let tot = 0.0;
 
         this._o.lineItems().forEach((lineItem) => {
-            output += lineItem.description();
-            output += '\t' ;
-            output += lineItem.price();
-            output += '\t' ;
-            output += lineItem.quantity();
-            output += '\t' ;
-            output += lineItem.totalAmount();
-            output += '\n' ;
+            receipt += lineItem.description();
+            receipt += '\t' ;
+            receipt += lineItem.price();
+            receipt += '\t' ;
+            receipt += lineItem.quantity();
+            receipt += '\t' ;
+            receipt += lineItem.totalAmount();
+            receipt += '\n' ;
 
             // calculate sales tax, rate: 10%
             let salesTax = lineItem.totalAmount() * 0.10;
@@ -31,11 +31,11 @@ export default class OrderReceipt {
         });
         
         // print tax
-        output += "Sales Tax" + '\t' + totalSalesTx;
+        receipt += "Sales Tax" + '\t' + totalSalesTx;
 
         // total amount
-        output += "Total Amount" + '\t' + tot;
-        return output.toString();
+        receipt += "Total Amount" + '\t' + tot;
+        return receipt.toString();
     }
 
     header() {
