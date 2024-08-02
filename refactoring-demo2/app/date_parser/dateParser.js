@@ -46,30 +46,9 @@ export default class DateParser {
         } else {
             const hourString = this._dateAndTimeString.substring(11, 13);
             hour = this._validate(hourString, 2, 0, 23, "hour");
-            if(hourString.length < 2) {
-                throw new Error("hour string is less than 2 characters");
-            }
-            hour = parseInt(hourString);
-
-            if(isNaN(hour)) {
-                throw new Error("hour is not an integer");
-            }
-
-            if(hour < 0 || hour > 23) {
-                throw new Error("hour can not be less than 0 or more than 23");
-            }
 
             const  minuteString = this._dateAndTimeString.substring(14, 16);
-            if (minuteString.length < 2) {
-                throw new Error("minute string is less than 2 characters");
-            }
-            minute = parseInt(minuteString);
-            if (isNaN(minute)) {
-                throw  new Error("minute is not an integer");
-            }
-            if (minute < 0 || minute > 59) {
-                throw new Error("minute can not be less than 0 or more than 59");
-            }            
+            minute = this._validate(minuteString, 2, 0, 59, "minute");
         }
         return new Date(Date.UTC(year, month - 1, date, hour, minute));
 
