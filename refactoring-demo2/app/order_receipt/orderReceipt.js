@@ -7,9 +7,6 @@ export default class OrderReceipt {
     printReceipt() {
         let receipt = this.header();
         receipt += this.printLinItems();
-        this._o.lineItems().forEach((lineItem) => {
-            receipt += lineItem.receiptLine();
-        });
         receipt += this.footer();
         return receipt.toString();
     }
@@ -32,11 +29,11 @@ export default class OrderReceipt {
     }
 
     printLinItems() {
-        let receipt = "";
+        let lineItemsReceipt = "";
         this._o.lineItems().forEach((lineItem) => {
-            receipt += lineItem.receiptLine();
+            lineItemsReceipt += lineItem.receiptLine();
         });
-        return receipt;
+        return lineItemsReceipt;
     }
     
 }
