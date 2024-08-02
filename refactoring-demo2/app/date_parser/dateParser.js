@@ -35,18 +35,7 @@ export default class DateParser {
         year = this.validate(yearString, 4, 2000, 2024, "year");
 
         const monthString = this._dateAndTimeString.substring(5,7); 
-        if(monthString.length < 2) {
-            throw new Error("month string is less than 2 characters")
-        }
-        month = parseInt(monthString);
-        if(isNaN(month)) {
-            throw new Error("month is not an integer");
-        }
-
-        if(month < 1 || month > 12) {
-            throw new Error("month can not be less than 1 or more than 12");
-        }
-
+        month = this.validate(monthString, 2, 1, 12, "month");
         const dateString = this._dateAndTimeString.substring(8, 10);
         if(dateString.length < 2) {
             throw new Error("day string is less than 2 characters")
