@@ -26,28 +26,31 @@ export default class DateParser {
         return integerValue;
     }
 
+    _extractStringValue(startPosition, endPosition) {
+        return this._dateAndTimeString.substring(startPosition, endPosition);
+    }
+
     parse() {
 
         let year, month, date, hour, minute;
 
-        const yearString = this._dateAndTimeString.substring(0, 4);
-
+        const yearString = this._extractStringValue(0, 4);
         year = this._validate(yearString, 4, 2000, 2024, "year");
 
-        const monthString = this._dateAndTimeString.substring(5,7); 
+        const monthString = this._extractStringValue(5,7); 
         month = this._validate(monthString, 2, 1, 12, "month");
 
-        const dateString = this._dateAndTimeString.substring(8, 10);
+        const dateString = this._extractStringValue(8, 10);
         date = this._validate(dateString, 2, 1, 31, "day");
 
-        if(this._dateAndTimeString.substring(10, 11) === "Z") {
+        if(this._extractStringValue(10, 11) === "Z") {
             hour = 0;
             minute = 0;
         } else {
-            const hourString = this._dateAndTimeString.substring(11, 13);
+            const hourString = this._extractStringValue(11, 13);
             hour = this._validate(hourString, 2, 0, 23, "hour");
 
-            const  minuteString = this._dateAndTimeString.substring(14, 16);
+            const  minuteString = this._extractStringValue(14, 16);
             minute = this._validate(minuteString, 2, 0, 59, "minute");
         }
         return new Date(Date.UTC(year, month - 1, date, hour, minute));
