@@ -12,16 +12,17 @@ export default class DateParser {
     }
 
     validate(stringValue, minLength, minValue, maxValue) {
+        const fieldName = "year";
         if(stringValue.length < minLength) {
-            throw new Error("year string is less than 4 characters")
+            throw new Error(`${fieldName} string is less than ${minLength} characters`)
         }
         let integerValue = parseInt(stringValue);
         if(isNaN(integerValue)) {
-            throw new Error("year is not an integer");
+            throw new Error(`${fieldName} is not an integer`);
         }
 
         if(integerValue < minValue || integerValue > maxValue) {
-            throw new Error("year can not be less than 2000 or more than 2024");
+            throw new Error(`${fieldName} can not be less than ${minValue} or more than ${maxValue}`);
         }
         return integerValue;
     }
