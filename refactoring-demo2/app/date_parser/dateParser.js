@@ -11,8 +11,7 @@ export default class DateParser {
         this._dateAndTimeString = dateAndTimeString;
     }
 
-    validate(stringValue) {
-        const minLength = 4;
+    validate(stringValue, minLength) {
         if(stringValue.length < minLength) {
             throw new Error("year string is less than 4 characters")
         }
@@ -35,9 +34,9 @@ export default class DateParser {
 
         const yearString = this._dateAndTimeString.substring(0, 4);
 
-        year = this.validate(yearString);
+        year = this.validate(yearString, 4 );
 
-        const monthString = this._dateAndTimeString.substring(5,7);
+        const monthString = this._dateAndTimeString.substring(5,7); 
         if(monthString.length < 2) {
             throw new Error("month string is less than 2 characters")
         }
