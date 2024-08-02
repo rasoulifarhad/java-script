@@ -14,13 +14,13 @@ export default class OrderReceipt {
 
         this._o.lineItems().forEach((lineItem) => {
             receipt += lineItem.description();
-            receipt += '\t' ;
+            receipt += "\t" ;
             receipt += lineItem.price();
-            receipt += '\t' ;
+            receipt += "\t" ;
             receipt += lineItem.quantity();
-            receipt += '\t' ;
+            receipt += "\t" ;
             receipt += lineItem.totalAmount();
-            receipt += '\n' ;
+            receipt += "\n" ;
 
             // calculate sales tax, rate: 10%
             let salesTax = lineItem.totalAmount() * 0.10;
@@ -41,8 +41,7 @@ export default class OrderReceipt {
     }
 
     footer(totalSaleTax, totalOrderAmount) {
-        let footer = "Sales Tax" + '\t' + totalSaleTax;
-        footer += "Total Amount" + '\t' + totalOrderAmount;
-        return footer;
+        return  "Sales Tax" + "\t" + totalSaleTax + "\n" + 
+                "Total Amount" + "\t" + totalOrderAmount + "\n";
     }
 }

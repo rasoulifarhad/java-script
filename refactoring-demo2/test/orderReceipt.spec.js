@@ -47,7 +47,7 @@ describe("OrderReceipt", function() {
 
         const output = receipt.printReceipt();
 
-        expect(output).to.include("Sales Tax\t6.5");
+        expect(output).to.include("Sales Tax\t6.5\n");
     });
 
     it("print total amount", function() {
