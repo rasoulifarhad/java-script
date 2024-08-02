@@ -1,25 +1,25 @@
 export default class LineItem {
 
-    constructor(desc, p, qty) {
-        this._desc = desc;
-        this._p = p;
-        this._qty = qty;
+    constructor(description, price, quantity) {
+        this._description = description;
+        this._price = price;
+        this._quantity = quantity;
     }
 
     description() {
-        return this._desc;
+        return this._description;
     }
 
     price() {
-        return this._p;
+        return this._price;
     }
 
     quantity() {
-        return this._qty;
+        return this._quantity;
     }
 
     lineAmount() {
-        return this._p * this._qty;
+        return this._price * this._quantity;
     }
 
     tax() {
