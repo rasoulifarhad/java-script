@@ -5,15 +5,7 @@ export default class OrderReceipt {
     }
 
     printReceipt() {
-        
-        let output = "";
-
-        // headers
-        output += "======Printing Orders======\n";
-
-        output += "Date - " + this._o.date;
-        output += this._o.customerName();
-        output += this._o.customerAddress();
+        let output = this.header();
 
         // lineItems
 
@@ -44,5 +36,11 @@ export default class OrderReceipt {
         // total amount
         output += "Total Amount" + '\t' + tot;
         return output.toString();
+    }
+
+    header() {
+        return "======Printing Orders======\n" +
+            this._o.customerName() +
+            this._o.customerAddress();
     }
 }
