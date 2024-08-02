@@ -7,8 +7,6 @@ export default class OrderReceipt {
     printReceipt() {
         let receipt = this.header();
 
-        // lineItems
-
         let totalSaleTax = 0.0;
         let totalAmount = 0.0;
 
