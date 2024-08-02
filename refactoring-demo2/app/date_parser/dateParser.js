@@ -11,7 +11,7 @@ export default class DateParser {
         this._dateAndTimeString = dateAndTimeString;
     }
 
-    validate(stringValue, minLength) {
+    validate(stringValue, minLength, minValue, maxValue) {
         if(stringValue.length < minLength) {
             throw new Error("year string is less than 4 characters")
         }
@@ -20,8 +20,6 @@ export default class DateParser {
             throw new Error("year is not an integer");
         }
 
-        const minValue = 2000;
-        const maxValue = 2024;
         if(integerValue < minValue || integerValue > maxValue) {
             throw new Error("year can not be less than 2000 or more than 2024");
         }
@@ -34,7 +32,7 @@ export default class DateParser {
 
         const yearString = this._dateAndTimeString.substring(0, 4);
 
-        year = this.validate(yearString, 4 );
+        year = this.validate(yearString, 4, 2000, 2024 );
 
         const monthString = this._dateAndTimeString.substring(5,7); 
         if(monthString.length < 2) {
