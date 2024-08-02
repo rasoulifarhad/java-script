@@ -42,14 +42,6 @@ export default class OrderReceipt {
     }
 
     lineItemReceipt(lineItem) {
-        let receiptLine = lineItem.description();
-        receiptLine += "\t" ;
-        receiptLine += lineItem.price();
-        receiptLine += "\t" ;
-        receiptLine += lineItem.quantity();
-        receiptLine += "\t" ;
-        receiptLine += lineItem.lineAmount();
-        receiptLine += "\n" ;
-        return receiptLine;
+        return lineItem.lineItemReceipt();
     }
 }
