@@ -34,14 +34,14 @@ export default class OrderReceipt {
     }
     
     saleTax(lineItem) {
-        return lineItem.saleTax();
+        return lineItem.tax();
     }
 
     totalLineAmount(lineItem) {
-        return lineItem.totalLineAmount();
+        return lineItem.totalAmount();
     }
 
     lineItemReceipt(lineItem) {
-        return lineItem.lineItemReceipt();
+        return lineItem.receipt();
     }
 }

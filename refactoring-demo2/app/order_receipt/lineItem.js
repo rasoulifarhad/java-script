@@ -22,15 +22,15 @@ export default class LineItem {
         return this._p * this._qty;
     }
 
-    saleTax() {
+    tax() {
         return this.lineAmount() * 0.10;
     }
 
-    totalLineAmount() {
-        return this.lineAmount() + this.saleTax();
+    totalAmount() {
+        return this.lineAmount() + this.tax();
     }
 
-    lineItemReceipt() {
+    receipt() {
         let receiptLine = this.description();
         receiptLine += "\t" ;
         receiptLine += this.price();
