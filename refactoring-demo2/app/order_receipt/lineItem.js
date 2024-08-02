@@ -23,7 +23,8 @@ export default class LineItem {
     }
 
     tax() {
-        return this.lineAmount() * 0.10;
+        const TAX_RATE_OF_10_PERCENT = 0.10;
+        return this.lineAmount() * TAX_RATE_OF_10_PERCENT;
     }
 
     totalAmount() {
