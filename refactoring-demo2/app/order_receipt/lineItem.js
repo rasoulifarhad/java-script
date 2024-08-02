@@ -30,13 +30,4 @@ export default class LineItem {
     lineAmountWithTax() {
         return this.lineAmount() + this.tax();
     }
-
-    receiptLine() {
-        return  this._description + "\t" +
-                this._price + "\t" + 
-                this._quantity + "\t" +
-                this.lineAmount() + "\n";
-    }
-
-
 }
