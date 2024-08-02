@@ -3,5 +3,12 @@ import Direction from "../app/direction/direction";
 
 describe("Direction", function() {
 
-    
+    it("east when turn right from north", function() {
+        const east = new Direction("E");
+        const north = new Direction("N");
+
+        const actual = north.turnRight();
+
+        expect(actual).to.deep.equal(east);
+    });
 });
