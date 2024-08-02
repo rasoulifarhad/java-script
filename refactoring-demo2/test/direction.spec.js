@@ -11,4 +11,16 @@ describe("Direction", function() {
 
         expect(actual).to.deep.equal(east);
     });
+
+    it("east when turn left from south", function() {
+        const south = new Direction("S");
+        const east = new Direction("E");
+
+        const actual = south.turnLeft();
+
+        expect(actual).to.deep.equal(east);
+    });
+
+
+
 });
