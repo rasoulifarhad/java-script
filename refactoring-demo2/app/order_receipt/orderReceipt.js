@@ -33,15 +33,4 @@ export default class OrderReceipt {
                 "Total Amount" + "\t" + totalAmount + "\n";
     }
     
-    saleTax(lineItem) {
-        return lineItem.tax();
-    }
-
-    totalLineAmount(lineItem) {
-        return lineItem.totalAmount();
-    }
-
-    lineItemReceipt(lineItem) {
-        return lineItem.receipt();
-    }
 }
