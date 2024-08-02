@@ -11,19 +11,22 @@ export default class DateParser {
         this._dateAndTimeString = dateAndTimeString;
     }
 
-    validate(yearString) {
-        if(yearString.length < 4) {
+    validate(stringValue) {
+        const minLength = 4;
+        if(stringValue.length < minLength) {
             throw new Error("year string is less than 4 characters")
         }
-        let year = parseInt(yearString);
-        if(isNaN(year)) {
+        let integerValue = parseInt(stringValue);
+        if(isNaN(integerValue)) {
             throw new Error("year is not an integer");
         }
 
-        if(year < 2000 || year > 2024) {
+        const minValue = 2000;
+        const maxValue = 2024;
+        if(integerValue < minValue || integerValue > maxValue) {
             throw new Error("year can not be less than 2000 or more than 2024");
         }
-        return year;
+        return integerValue;
     }
 
     parse() {
