@@ -11,7 +11,7 @@ export default class DateParser {
         this._dateAndTimeString = dateAndTimeString;
     }
 
-    _validate(stringValue, minLength, minValue, maxValue, fieldName) {
+    _validate(fieldName, minLength, minValue, maxValue, stringValue) {
         if(stringValue.length < minLength) {
             throw new Error(`${fieldName} string is less than ${minLength} characters`)
         }
@@ -35,23 +35,23 @@ export default class DateParser {
         let year, month, date, hour, minute;
 
         const yearString = this._extractStringValue(0, 4);
-        year = this._validate(yearString, 4, 2000, 2024, "year");
+        year = this._validate("year", 4, 2000, 2024, yearString);
 
         const monthString = this._extractStringValue(5,7); 
-        month = this._validate(monthString, 2, 1, 12, "month");
+        month = this._validate("month", 2, 1, 12, monthString);
 
         const dateString = this._extractStringValue(8, 10);
-        date = this._validate(dateString, 2, 1, 31, "day");
+        date = this._validate("day", 2, 1, 31, dateString);
 
         if(this._extractStringValue(10, 11) === "Z") {
             hour = 0;
             minute = 0;
         } else {
             const hourString = this._extractStringValue(11, 13);
-            hour = this._validate(hourString, 2, 0, 23, "hour");
+            hour = this._validate("hour", 2, 0, 23, hourString);
 
             const  minuteString = this._extractStringValue(14, 16);
-            minute = this._validate(minuteString, 2, 0, 59, "minute");
+            minute = this._validate("minute", 2, 0, 59, minuteString);
         }
         return new Date(Date.UTC(year, month - 1, date, hour, minute));
 
