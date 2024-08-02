@@ -32,15 +32,10 @@ export default class LineItem {
     }
 
     receipt() {
-        let receiptLine = this.description();
-        receiptLine += "\t" ;
-        receiptLine += this.price();
-        receiptLine += "\t" ;
-        receiptLine += this.quantity();
-        receiptLine += "\t" ;
-        receiptLine += this.lineAmount();
-        receiptLine += "\n" ;
-        return receiptLine;
+        return  this.description() + "\t" +
+                this.price() + "\t" + 
+                this.quantity() + "\t" +
+                this.lineAmount() + "\n";
     }
 
 
