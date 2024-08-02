@@ -1,7 +1,7 @@
 export default class OrderReceipt {
 
-    constructor(o) {
-        this._o = o;
+    constructor(order) {
+        this._order = order;
     }
  
     printReceipt() {
@@ -10,14 +10,14 @@ export default class OrderReceipt {
 
     printHeader() {
         return "======Printing Orders======\n" +
-            this._o.customerName() +
-            this._o.customerAddress();
+            this._order.customerName() +
+            this._order.customerAddress();
     }
 
     printFooter() {
         let totalSaleTax = 0.0;
         let totalAmount = 0.0;
-        this._o.lineItems().forEach((lineItem) => {
+        this._order.lineItems().forEach((lineItem) => {
             totalSaleTax  += lineItem.tax();
             totalAmount += lineItem.lineAmountWithTax();
         });
@@ -27,7 +27,7 @@ export default class OrderReceipt {
 
     printLinItems() {
         let lineItemsReceipt = "";
-        this._o.lineItems().forEach((lineItem) => {
+        this._order.lineItems().forEach((lineItem) => {
             lineItemsReceipt += lineItem.receiptLine();
         });
         return lineItemsReceipt;
