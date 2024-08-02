@@ -13,21 +13,9 @@ export default class OrderReceipt {
         let totalAmount = 0.0;
 
         this._o.lineItems().forEach((lineItem) => {
-            receipt += lineItem.description();
-            receipt += "\t" ;
-            receipt += lineItem.price();
-            receipt += "\t" ;
-            receipt += lineItem.quantity();
-            receipt += "\t" ;
-            receipt += lineItem.lineAmount();
-            receipt += "\n" ;
-
-            // calculate sales tax, rate: 10%
-            let salesTax = lineItem.lineAmount() * 0.10;
-            totalSaleTax  += salesTax;
-
-            // calculate total amount of linr item =price * quantity + 10 % sales tax
-            totalAmount += lineItem.lineAmount() + salesTax;
+            receipt += this.lineItemReceipt(lineItem);
+            totalSaleTax  += this.saleTax(lineItem);
+            totalAmount += this.totalLineAmount(lineItem);
         });
         
         receipt += this.footer(totalSaleTax, totalAmount);
@@ -43,5 +31,25 @@ export default class OrderReceipt {
     footer(totalSaleTax, totalAmount) {
         return  "Sales Tax" + "\t" + totalSaleTax + "\n" + 
                 "Total Amount" + "\t" + totalAmount + "\n";
+    }
+    
+    saleTax(lineItem) {
+        return lineItem.lineAmount() * 0.10;
+    }
+
+    totalLineAmount(lineItem) {
+        return lineItem.lineAmount() + this.saleTax(lineItem);
+    }
+
+    lineItemReceipt(lineItem) {
+        let receiptLine = lineItem.description();
+        receiptLine += "\t" ;
+        receiptLine += lineItem.price();
+        receiptLine += "\t" ;
+        receiptLine += lineItem.quantity();
+        receiptLine += "\t" ;
+        receiptLine += lineItem.lineAmount();
+        receiptLine += "\n" ;
+        return receiptLine;
     }
 }
