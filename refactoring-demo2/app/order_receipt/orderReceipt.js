@@ -13,7 +13,7 @@ export default class OrderReceipt {
         let totalAmount = 0.0;
 
         this._o.lineItems().forEach((lineItem) => {
-            receipt += lineItem.receipt();
+            receipt += lineItem.receiptLine();
             totalSaleTax  += lineItem.tax();
             totalAmount += lineItem.totalAmount();
         });
