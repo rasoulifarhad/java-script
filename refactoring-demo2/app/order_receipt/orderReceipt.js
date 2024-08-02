@@ -3,21 +3,18 @@ export default class OrderReceipt {
     constructor(o) {
         this._o = o;
     }
-
+ 
     printReceipt() {
-        let receipt = this.header();
-        receipt += this.printLinItems();
-        receipt += this.footer();
-        return receipt.toString();
+        return this.printHeader() +  this.printLinItems() + this.printFooter();
     }
 
-    header() {
+    printHeader() {
         return "======Printing Orders======\n" +
             this._o.customerName() +
             this._o.customerAddress();
     }
 
-    footer() {
+    printFooter() {
         let totalSaleTax = 0.0;
         let totalAmount = 0.0;
         this._o.lineItems().forEach((lineItem) => {
