@@ -11,8 +11,7 @@ export default class DateParser {
         this._dateAndTimeString = dateAndTimeString;
     }
 
-    validate(stringValue, minLength, minValue, maxValue) {
-        const fieldName = "year";
+    validate(stringValue, minLength, minValue, maxValue, fieldName) {
         if(stringValue.length < minLength) {
             throw new Error(`${fieldName} string is less than ${minLength} characters`)
         }
@@ -33,7 +32,7 @@ export default class DateParser {
 
         const yearString = this._dateAndTimeString.substring(0, 4);
 
-        year = this.validate(yearString, 4, 2000, 2024 );
+        year = this.validate(yearString, 4, 2000, 2024, "year");
 
         const monthString = this._dateAndTimeString.substring(5,7); 
         if(monthString.length < 2) {
