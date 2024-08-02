@@ -36,18 +36,9 @@ export default class DateParser {
 
         const monthString = this._dateAndTimeString.substring(5,7); 
         month = this.validate(monthString, 2, 1, 12, "month");
-        const dateString = this._dateAndTimeString.substring(8, 10);
-        if(dateString.length < 2) {
-            throw new Error("day string is less than 2 characters")
-        }
-        date = parseInt(dateString);
-        if(isNaN(date)) {
-            throw new Error("day is not an integer");
-        }
 
-        if(date < 1 || date > 31) {
-            throw new Error("day can not be less than 1 or more than 31");
-        }
+        const dateString = this._dateAndTimeString.substring(8, 10);
+        date = this.validate(dateString, 2, 1, 31, "day");
 
         if(this._dateAndTimeString.substring(10, 11) === "Z") {
             hour = 0;
