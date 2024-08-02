@@ -30,11 +30,7 @@ export default class OrderReceipt {
             tot += lineItem.totalAmount() + salesTax;
         });
         
-        // print tax
-        receipt += "Sales Tax" + '\t' + totalSalesTx;
-
-        // total amount
-        receipt += "Total Amount" + '\t' + tot;
+        receipt += this.footer(totalSalesTx, tot);
         return receipt.toString();
     }
 
@@ -42,5 +38,11 @@ export default class OrderReceipt {
         return "======Printing Orders======\n" +
             this._o.customerName() +
             this._o.customerAddress();
+    }
+
+    footer(totalSalesTx, tot) {
+        let footer = "Sales Tax" + '\t' + totalSalesTx;
+        footer += "Total Amount" + '\t' + tot;
+        return footer;
     }
 }
