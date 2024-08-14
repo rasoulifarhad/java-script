@@ -12,13 +12,11 @@ export default class DateParser {
     }
 
     _extractAndValidate(fieldName, startPosition, endPosition, minValue, maxValue) {
-        const valueString = this._extractStringValue(startPosition, endPosition);
-        return this._validate(fieldName, endPosition - startPosition, minValue, maxValue, valueString);
+        const valueString = this._extractStringValue(fieldName, startPosition, endPosition);
+        return this._validateIntegerWithBoundaries(fieldName, minValue, maxValue, valueString);
     }
-    _validate(fieldName, minLength, minValue, maxValue, stringValue) {
-        if(stringValue.length < minLength) {
-            throw new Error(`${fieldName} string is less than ${minLength} characters`)
-        }
+
+    _validateIntegerWithBoundaries(fieldName, minValue, maxValue, stringValue) {
         let integerValue = parseInt(stringValue);
         if(isNaN(integerValue)) {
             throw new Error(`${fieldName} is not an integer`);
@@ -30,14 +28,18 @@ export default class DateParser {
         return integerValue;
     }
 
-    _extractStringValue(startPosition, endPosition) {
-        return this._dateAndTimeString.substring(startPosition, endPosition);
+    _extractStringValue(fieldName, startPosition, endPosition) {
+        const stringValue = this._dateAndTimeString.substring(startPosition, endPosition);
+        const minLength = endPosition - startPosition;
+        if(stringValue.length < minLength) {
+            throw new Error(`${fieldName} string is less than ${minLength} characters`);
+        }
+        return stringValue;
     }
 
     parse() {
 
         let year, month, date, hour, minute;
-
         year = this._extractAndValidate("year", 0, 4, 2000, 2024);
         month = this._extractAndValidate("month", 5, 7, 1, 12);
         date = this._extractAndValidate("day", 8, 10, 1, 31);
